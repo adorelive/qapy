@@ -12,7 +12,7 @@
 创建目录 (同时创建父目录) 创建多个{a..z} {1..9}  | mkdir -p
 切换目录 (当前) (上层) (上次的目录) (家目录) |  cd . .. - ~
 显示目录树形结构 | tree
-创建空文件 `date +%Y` | touch
+创建空文件 `date` 时间 | touch
 时间 (年) (月) (日) (日期) (时间) | date +%Y +%m +%d +%F +%T
 打印输出 | echo
 覆盖/追加到文本 | > >>
@@ -82,40 +82,3 @@ tar 解压 (查看包里的文件) x.tar.gz  | tar -xzvf -tf x.tar.gz
 左命令失败执行右边命令 | ||
 左命令成功执行右边命令 | &&
 后台执行命令  | &
-用户信息 | /etc/passwd
-用户密码 | /etc/shadow
-用户分组 | /etc/group
-字符集设置 | /etc/locale.conf
-本地DNS映射 | /etc/hosts
-网关 | /etc/resolv.conf
-定时任务 | /etc/crontab
-登录会话提示 | /etc/motd
-会话连接执行脚本 | /etc/profile
-会话连接执行两次脚本 | /etc/bashrc
-开机加载 | /etc/rc.d/rc.local
-系统版本 | /etc/redhat-release
-系统版本详细 | /etc/os-release
-网络配置文件 | /etc/sysconfig/network-scripts/
-密码策略设置 | /etc/pam.d
-sudo文件 | /etc/sudoers
-系统通用日志(内核、服务、硬件等非认证信息) |  /var/log/messages
-认证与安全日志(登录尝试、sudo提权等)     |	 /var/log/secure
-内核日志(硬件、驱动、内核报错)	       |    /var/log/dmesg.log
-启动日志(系统启动过程中的服务信息) |       /var/log/boot.log
-定时任务日志(Cron任务执行记录)	     |      /var/log/cron
-邮件服务日志(邮件收发状态)	|      /var/log/maillog
-包管理日志(软件安装、更新、卸载记录)    |   /var/log/yum.log
-登录历史 (二进制文件)     |    last
-失败登录记录 (二进制文件)  | lastb
-用户最后登录 (二进制文件)  | lastlog
-基础用户命令 | /bin
-系统管理命令 | /sbin
-系统配置文件 | /etc
-普通用户家目录 | /home
-超级管理员家目录 | /root
-设备文件 | /dev
-虚拟进程文件系统 | /proc
-可变数据(日志文件) | /var
-临时文件 | /tmp
-用户系统资源 | /usr
-启动文件 | /boot
