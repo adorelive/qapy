@@ -1,0 +1,10 @@
+哪个(维奇)  | which
+状态(斯塔特) | stat
+计划任务表(科软太仆) | crontab
+别名(哎类死) | alias
+拥有(奥len)  | own
+影子(啥都)  | shadow
+区域设置(楼开偶)  | locale
+解决(瑞死奥夫) | resolve
+发布(瑞类似) | release
+安全(色克儿) | secure

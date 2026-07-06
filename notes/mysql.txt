@@ -1,0 +1,12 @@
+什么是 MySQL ？  | 开源关系型数据库
+如何登陆 MYSQL   | mysql -h<主机> -u<账号> -p<密码> -P<端口>
+SQL 分类         | DDL DML DQL DCL
+创建数据库        | create database <库名>
+查看数据库        |  show databases
+切换数据库        |  use <库名>
+删除数据库        |  drop database <库名>
+创建表           |  create table <表名>(<字段名> <类型> <约束>)
+从其他表创建       |  create table <新表> as select * from <旧表> where <条件>
+字段或表加备注      |  comment '备注'
+常用的五种数据类型 | int float(m, n) char(n) varchar(n) datetime
+常用的五种约束说明 | primary key auto_increment not null unique default

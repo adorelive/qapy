@@ -1,0 +1,121 @@
+超级管理员盘符/家目录/UID |  # /root 0
+普通用户盘符/x家目录/UID>?  | $ /home/x 1000
+当前登录用户名 | whoami
+查询x用户信息  | id x
+当前所在文件系统路径 |  pwd
+查看 ip 地址 |  ip a
+查看主机名 (查看IP) |  hostname -I
+复制 (递归目录) |  cp -r
+移动/重命名  | mv
+删除 (目录) (不询问),{a..z} {1..9}，*(0或多个) | rm -r -f
+查看目录 (详细信息) (隐藏文件) (显示单位) (索引号) | ls -l -a -h -i
+创建目录 (同时创建父目录) 创建多个{a..z} {1..9}  | mkdir -p
+切换目录 (当前) (上层) (上次的目录) (家目录) |  cd . .. - ~
+显示目录树形结构 | tree
+创建空文件 `date +%Y` | touch
+时间 (年) (月) (日) (日期) (时间) | date +%Y +%m +%d +%F +%T
+打印输出 | echo
+覆盖/追加到文本 | > >>
+中间文本b可换行书写x | <<xbx
+显示文件内容 (显示行号) | cat -n
+阅读文件两个命令 | less more
+查看前10行 (指定行数) | head -n
+查看后10行 (指定行数) (动态监控文件变化) | tail -n -f
+(启动，停止 状态，重启，开机启动，关闭开机启动) 服务x |  systemctl start stop status restart enable disable x
+文本过滤 x (大小写) (行号) (计数) | grep -i -n -c x
+命令历史 (清楚本次会话历史) | history -c
+最近登录信息三个命令 | last w who
+查看命令的存放位置 | which
+查看安装包的位置  | whereis
+查看后台任务 (显示pid) | jobs -l
+让后台任务x回到前台 | fg x
+在后台运行已暂停任务x | bg x
+统计x文件行数 | wc x
+x文件类型 | file x
+查看x文件访问修改时间 | stat x
+查看x文件夹大小  | du x
+查看磁盘使用 | df
+查看内存使用 | free
+查看所有块设备，u盘，硬盘 | lsblk
+在线软件管理工具 (安装) (删除) (查找) x | yum install remove search x
+手动安装适合离线安装 (查询已安装) | rpm -ql
+源码编译和安装   | make make install
+通过 http 下载数据 | wget
+发送网络请求 | curl
+测试端口       | telnet 
+网络诊断，追踪数据包经过的每一个“跳点” | traceroute
+立即 重启/关机/取消 | shutdown -r -h -c now
+FTP 文件传输登录root ip (本地命令ls) (下载) (上传) | sftp root@ip lls get put
+ssh下载文件 (目录) root ip /server /local | scp -r root@ip:/server /local
+ssh上传文件 (目录) root ip /server /local | scp -r /local root@ip:/server
+端口号管理 | netstat -lntup
+定时任务 (查看) (编辑) (清空) (文件所在目录) | crontab -l -e -r /var/spool/cron/
+设置/取消别名x | alias unalias x=x
+系统版本 (看所有)  | uname -a
+查看组x  | groups x
+创建组 | groupadd
+创建用户 (UID) (主组) (附组) (备注) x | useradd -u -g -G -c x
+修改用户x的密码 | passwd x
+非交互设置用户x的密码x | echo | passwd --stdin x
+修改用户 | usermod
+删除用户 (删除相关文件) | userdel -r
+切换用户 (完全切换) | su -
+临时提权 (查看权限) (模拟root) | sudo -l -i
+编辑提权文件 | visudo
+文件权限读/写/执行的组合的字母(数字)表示 | rwx(421) rw(6) rx(5) wx(3) rwx(7)
+文件的所属字母(主) (组) (其他) (所有) | u g o a
+目录和文件的默认权限是 | 755 644
+x文件赋权 (数字全部权限) (主读权限) (所有用户拥有主权限) (共享目录) | chmod 777 u+r u+s o+t x
+修改x文件主a和组b  | chown a.b x
+查看文件的隐藏属性  | lsattr
+设置文件为只读文件 | chattr +i
+查找 / 下文件 (访问时间天) (文件名) (类型) (逻辑条件) (大小) (执行命令) | find -atime -name -type -a -o ! -size -exec /
+给o创软连接n | ln -s o n
+查看进程  | ps -ef
+查看动态进程 | top
+杀死进程 (强制结束) (释放完资源在结束) (重新加载一次) | kill -9 -15 -1
+zip (压缩文件夹) / 压缩为 x.zip | zip -r x.zip /
+zip 解压 x.zip  | unzip x.zip
+tar 压缩 / 为 x.tar.gz | tar -czvf x.tar.gz /
+tar 解压 (查看包里的文件) x.tar.gz  | tar -xzvf -tf x.tar.gz
+管道符，前面的输出是后面的输入 | |
+左命令失败执行右边命令 | ||
+左命令成功执行右边命令 | &&
+后台执行命令  | &
+用户信息 | /etc/passwd
+用户密码 | /etc/shadow
+用户分组 | /etc/group
+字符集设置 | /etc/locale.conf
+本地DNS映射 | /etc/hosts
+网关 | /etc/resolv.conf
+定时任务 | /etc/crontab
+登录会话提示 | /etc/motd
+会话连接执行脚本 | /etc/profile
+会话连接执行两次脚本 | /etc/bashrc
+开机加载 | /etc/rc.d/rc.local
+系统版本 | /etc/redhat-release
+系统版本详细 | /etc/os-release
+网络配置文件 | /etc/sysconfig/network-scripts/
+密码策略设置 | /etc/pam.d
+sudo文件 | /etc/sudoers
+系统通用日志(内核、服务、硬件等非认证信息) |  /var/log/messages
+认证与安全日志(登录尝试、sudo提权等)     |	 /var/log/secure
+内核日志(硬件、驱动、内核报错)	       |    /var/log/dmesg.log
+启动日志(系统启动过程中的服务信息) |       /var/log/boot.log
+定时任务日志(Cron任务执行记录)	     |      /var/log/cron
+邮件服务日志(邮件收发状态)	|      /var/log/maillog
+包管理日志(软件安装、更新、卸载记录)    |   /var/log/yum.log
+登录历史 (二进制文件)     |    last
+失败登录记录 (二进制文件)  | lastb
+用户最后登录 (二进制文件)  | lastlog
+基础用户命令 | /bin
+系统管理命令 | /sbin
+系统配置文件 | /etc
+普通用户家目录 | /home
+超级管理员家目录 | /root
+设备文件 | /dev
+虚拟进程文件系统 | /proc
+可变数据(日志文件) | /var
+临时文件 | /tmp
+用户系统资源 | /usr
+启动文件 | /boot
