@@ -9,4 +9,15 @@
 发布(瑞类似) | release
 安全(色克儿) | secure
 导师(t+u特) | tutor
-痕迹        | trace
+痕迹(垂死)   | trace
+主要的(拍莫瑞) | primary
+授予(个软特) | grant
+增量(因克们特) | increment
+独特的(有你克) | unique
+改变(奥特儿) | alter
+列(靠了木) | column
+截断(串k特) | truncate
+天花板(c欧) | ceil
+地板(夫罗尔) | floor
+圆形的(ri wu ong 的) | round
+合并(口我莱斯) | coalesce

@@ -1,44 +1,44 @@
-系统的主机名（计算机名字） | /etc/hostname
-本地 DNS 解析文件 | /etc/hosts
-DNS 解析器配置，指定 DNS 服务器地址 | /etc/resolv.conf
-会话连接执行脚本 | /etc/profile
-会话连接执行两次脚本 | /etc/bashrc
-用户账户信息（用户名、UID、家目录、Shell 等） | /etc/passwd
-用户密码的加密哈希值和密码过期信息 | /etc/shadow
-用户组信息 | /etc/group
-sudo 权限配置文件 | /etc/sudoers
-用户登录的默认策略，如密码有效期、UID 范围等 | /etc/login.defs
-网卡配置文件 | /etc/sysconfig/network-scripts/
-SSH 服务端配置文件，控制是否允许 root 登录、端口号、密钥认证等 | /etc/ssh/sshd_config
-系统级定时任务配置文件 | /etc/crontab
-登录前和登录后显示的欢迎信息 | /etc/motd
-字符集设置 | /etc/locale.conf
-当前 Linux 系统的发行版名称和版本号 | /etc/redhat-release
-当前操作系统的身份信息 | /etc/os-release
-包含认证的服务 | /etc/pam.d
-系统开机自启动脚本 | /etc/rc.d/rc.local
-每次打开交互式终端时执行 | .bashrc
-用户登录时执行一次 | .bash_profile
-记录你执行过的所有命令历史 | .bash_history
-每次退出登录 shell 时执行 | .bash_logout
-基础用户命令 | /bin
-系统管理命令 | /sbin
-系统配置文件 | /etc
-普通用户家目录 | /home
-超级管理员家目录 | /root
-设备文件 | /dev
-虚拟进程文件系统 | /proc
-可变数据(日志文件) | /var
-临时文件 | /tmp
-用户系统资源 | /usr
-启动文件 | /boot
+系统的主机名（计算机名字）的配置文件 | /etc/hostname
+本地 DNS 解析文件的配置文件 | /etc/hosts
+指定 DNS 服务器地址，DNS 解析器的配置 | /etc/resolv.conf
+会话连接执行脚本的配置 | /etc/profile
+会话连接执行两次脚本的配置 | /etc/bashrc
+用户账户信息（用户名、UID、家目录、Shell 等）的配置 | /etc/passwd
+用户密码的加密哈希值和密码过期信息的配置 | /etc/shadow
+用户组信息的配置 | /etc/group
+sudo 权限的配置 | /etc/sudoers
+用户登录的默认策略，如密码有效期、UID 范围的配置 | /etc/login.defs
+网卡的配置文件 | /etc/sysconfig/network-scripts/
+SSH 服务端配置文件，控制是否允许 root 登录、端口号、密钥认证的配置 | /etc/ssh/sshd_config
+系统级定时任务的配置 | /etc/crontab
+登录前和登录后显示欢迎信息的配置 | /etc/motd
+字符集的配置 | /etc/locale.conf
+当前 Linux 系统的发行版名称和版本号的配置 | /etc/redhat-release
+当前操作系统的身份信息的配置 | /etc/os-release
+认证服务的配置 | /etc/pam.d
+系统开机自启动脚本的配置 | /etc/rc.d/rc.local
+家目录下每次打开交互式终端时执行 | .bashrc
+家目录下用户登录时执行一次 | .bash_profile
+家目录下记录你执行过的所有命令历史 | .bash_history
+家目录下每次退出登录 shell 时执行 | .bash_logout
+根目录下基础用户命令 | /bin
+根目录下系统管理命令 | /sbin
+根目录下系统配置文件 | /etc
+根目录下普通用户家目录 | /home
+根目录下超级管理员家目录 | /root
+根目录下设备文件 | /dev
+根目录下虚拟进程文件系统 | /proc
+根目录下可变数据(日志文件) | /var
+根目录下临时文件 | /tmp
+根目录下用户系统资源 | /usr
+根目录下启动文件 | /boot
 系统通用日志(内核、服务、硬件等非认证信息) |  /var/log/messages
-记录硬件检测和设备初始化过程	       |    /var/log/dmesg.log
+记录硬件检测和设备初始化过程的日志	       |    /var/log/dmesg.log
 启动日志(系统启动过程中的服务信息) |       /var/log/boot.log
 认证与安全日志(登录尝试、sudo提权等)     |	 /var/log/secure
 定时任务日志(Cron任务执行记录)	     |      /var/log/cron
 邮件服务日志(邮件收发状态)	|      /var/log/maillog
 包管理日志(软件安装、更新、卸载记录)    |   /var/log/yum.log
-登录历史 (二进制文件)     |    last
-失败登录记录 (二进制文件)  | lastb
-用户最后登录 (二进制文件)  | lastlog
+登录历史命令 (二进制文件)     |    last
+失败登录记录命令 (二进制文件)  | lastb
+用户最后登录命令 (二进制文件)  | lastlog
