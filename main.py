@@ -3,20 +3,18 @@ import random
 import questionary
 
 
-print(' '.join(random.choice(["♥", '♠', '♣', '♦']) for _ in range(30)))
-
 def play():
     qa = [] # 问答列表
     j = 0   # 题目编号
     notes = os.listdir('./notes/')
-    notes.append('exit')
+    notes.append('Exit')
     notes_file = [item.split('.')[0] for item in notes]
     note = questionary.select(
         "select",
         choices=notes_file,
     ).ask()
     # 退出
-    if note == 'exit': return
+    if note == 'Exit': return
     # 读取文件
     with open(f'./notes/{note}.txt', 'r', encoding='utf-8') as f:
         lines = f.readlines()
@@ -39,4 +37,6 @@ def play():
     play()
 
 # 开始
-play()
+if __name__ == "__main__":
+    print(' '.join(random.choice(["♥", '♠', '♣', '♦']) for _ in range(30)))
+    play()
