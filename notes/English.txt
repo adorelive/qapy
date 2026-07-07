@@ -8,3 +8,4 @@
 解决(瑞死奥夫) | resolve
 发布(瑞类似) | release
 安全(色克儿) | secure
+痕迹        | trace

@@ -21,12 +21,11 @@
 阅读文件两个命令 | less more
 查看前10行 (指定行数) | head -n
 查看后10行 (指定行数) (动态监控文件变化) | tail -n -f
-(启动，停止 状态，重启，开机启动，关闭开机启动) 服务x |  systemctl start stop status restart enable disable x
 文本过滤 x (大小写) (行号) (计数) | grep -i -n -c x
 命令历史 (清楚本次会话历史) | history -c
-最近登录信息三个命令 | last w who
 查看命令的存放位置 | which
 查看安装包的位置  | whereis
+设置/取消别名x | alias unalias x=x
 查看后台任务 (显示pid) | jobs -l
 让后台任务x回到前台 | fg x
 在后台运行已暂停任务x | bg x
@@ -40,17 +39,18 @@ x文件类型 | file x
 在线软件管理工具 (安装) (删除) (查找) x | yum install remove search x
 手动安装适合离线安装 (查询已安装) | rpm -ql
 源码编译和安装   | make make install
+给o创软连接n | ln -s o n
+(启动，停止 状态，重启，开机启动，关闭开机启动) 服务x |  systemctl start stop status restart enable disable x
 通过 http 下载数据 | wget
 发送网络请求 | curl
-测试端口       | telnet 
+测试端口     | telnet
+端口号管理 | netstat -lntup
 网络诊断，追踪数据包经过的每一个“跳点” | traceroute
 立即 重启/关机/取消 | shutdown -r -h -c now
 FTP 文件传输登录root ip (本地命令ls) (下载) (上传) | sftp root@ip lls get put
 ssh下载文件 (目录) root ip /server /local | scp -r root@ip:/server /local
 ssh上传文件 (目录) root ip /server /local | scp -r /local root@ip:/server
-端口号管理 | netstat -lntup
 定时任务 (查看) (编辑) (清空) (文件所在目录) | crontab -l -e -r /var/spool/cron/
-设置/取消别名x | alias unalias x=x
 系统版本 (看所有)  | uname -a
 查看组x  | groups x
 创建组 | groupadd
@@ -62,6 +62,7 @@ ssh上传文件 (目录) root ip /server /local | scp -r /local root@ip:/server
 切换用户 (完全切换) | su -
 临时提权 (查看权限) (模拟root) | sudo -l -i
 编辑提权文件 | visudo
+最近登录信息三个命令 | last w who
 文件权限读/写/执行的组合的字母(数字)表示 | rwx(421) rw(6) rx(5) wx(3) rwx(7)
 文件的所属字母(主) (组) (其他) (所有) | u g o a
 目录和文件的默认权限是 | 755 644
@@ -70,7 +71,6 @@ x文件赋权 (数字全部权限) (主读权限) (所有用户拥有主权限) 
 查看文件的隐藏属性  | lsattr
 设置文件为只读文件 | chattr +i
 查找 / 下文件 (访问时间天) (文件名) (类型) (逻辑条件) (大小) (执行命令) | find -atime -name -type -a -o ! -size -exec /
-给o创软连接n | ln -s o n
 查看进程  | ps -ef
 查看动态进程 | top
 杀死进程 (强制结束) (释放完资源在结束) (重新加载一次) | kill -9 -15 -1
