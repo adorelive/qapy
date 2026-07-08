@@ -29,7 +29,7 @@ def play():
         ql = str(j) + '/' + str(len(qa)) + ') ' + ql
         while True:
             i += 1
-            if i == 3: ql += f'({al})'
+            if i == 2: ql += f'({al})'
             a = questionary.text(ql).ask()
             if a.strip() == al.strip():
                 break

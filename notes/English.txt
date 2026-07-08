@@ -21,3 +21,6 @@
 地板(夫罗尔) | floor
 圆形的(ri wu ong 的) | round
 合并(口我莱斯) | coalesce
+   | global
+   | branch
+   | merge

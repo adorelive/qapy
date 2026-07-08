@@ -43,7 +43,9 @@ x文件类型 | file x
 (启动，停止 状态，重启，开机启动，关闭开机启动) 服务x |  systemctl start stop status restart enable disable x
 通过 http 下载数据 | wget
 发送网络请求 | curl
-测试端口     | telnet
+端口连通性测试  | telnet
+端口连通性测试 (测试端口) (监听端口) (执行程序) | nc -zv -lp -e /bin/sh
+探测开放的端口(主机发现) (指定端口22,80) (综合信息收集) | nmap -sn -p22,80 -A
 端口号管理 | netstat -lntup
 网络诊断，追踪数据包经过的每一个“跳点” | traceroute
 立即 重启/关机/取消 | shutdown -r -h -c now

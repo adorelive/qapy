@@ -1,0 +1,71 @@
+Git 与 SVN 的核心区别是什么？ | git是分布式版本控制系统
+如何查看当前 Git 版本？ | git -v
+如何设置全局用户名a？ | git config --global user.name a
+如何设置全局邮箱b？ |   git config --global user.email b
+如何查看所有 Git 配置？ | git config -l
+Git 中 HEAD 代表什么？ | 当前分支的最新提交
+如何初始化一个新 Git 仓库？ | git init
+如何将x文件添加到暂存区？(添加所有变更) | git add x .
+如何提交暂存区内容到仓库？(说明) (自动暂存已跟踪文件的改动并提交) (修改上次提交说明) | git commit -m -a --amend
+如何查看当前工作区的状态？ | git status
+如何查看提交历史（简洁一行显示）(查看x文件的修改历史)？ | git log --oneline -p x
+如何查看工作区与暂存区的差异？(暂存区和上次提交的差异) | git diff --staged
+如何创建x分支？ | git branch x
+如何切换到x分支？(两种) (创建并切换分支) | git switch -c checkout -b x
+如何查看所有本地分支？(包括远程分支) (删除本地x分支) | git branch -a -d x
+如何合并x分支到当前分支？ | git merge x
+如何撤销工作区中x文件的修改（还原到最近提交状态）(两种)？ | git restore checkout -- x
+如何将x文件从暂存区撤出（但保留修改）？ | git restore --staged x git reset HEAD x
+
+
+
+如何撤销最近一次提交（保留改动在工作区）？ | git reset --soft HEAD~1
+如何撤销最近一次提交（丢弃改动）？ | git reset --hard HEAD~1
+如何回退到某个历史提交，并保留后续修改为未提交状态？ | git reset --mixed <commit-hash>（默认行为）
+
+如何查看所有操作的历史记录（包括 reset 等）？ | git reflog
+
+如何添加远程仓库地址？ | git remote add origin <远程URL>
+
+如何查看当前配置的远程仓库？ | git remote -v
+
+如何将本地分支推送到远程？ | git push origin <本地分支名>
+
+首次推送并设置上游分支的命令是？ | git push -u origin <分支名>
+
+如何从远程仓库拉取更新并合并？ | git pull origin <分支名>（等同于 fetch + merge）
+
+如何只获取远程更新但不合并？ | git fetch origin
+
+如何删除远程分支？ | git push origin --delete <分支名>
+
+如何查看远程分支与本地分支的跟踪关系？ | git branch -vv
+
+什么是冲突（conflict）？ | 当合并或拉取时，双方修改了同一文件的同一区域，Git 无法自动合并，需手动解决。
+
+如何解决合并冲突？ | 手动编辑冲突文件，git add 标记已解决，然后 git commit。
+如何暂存当前未提交的修改（临时切换分支）？ | git stash，恢复用 git stash pop
+
+如何将某个提交的改动应用到当前分支（但不合并）？ | git cherry-pick <commit-hash>
+
+如何交互式地改写历史（如合并多个提交）？ | git rebase -i HEAD~n（n 为要操作的提交数）
+
+如何取消一次已推送的提交？ | 谨慎使用 git revert <commit-hash>（生成反向提交），或 git reset --hard + git push --force（需团队协商）
+
+如何忽略本地已跟踪文件的修改（不提交）？ | git update-index --assume-unchanged <文件名>，恢复用 --no-assume-unchanged
+
+如何查看某行代码最后一次是谁修改的？ | git blame <文件名>
+
+如何克隆一个仓库的指定分支？ | git clone -b <分支名> <远程URL>
+
+如何压缩整个仓库的历史大小？ | 通常使用 git gc 或 git repack，但真正减肥需用 git filter-branch 或 BFG Repo-Cleaner。
+
+你在 dev 分支工作，但发现 main 有紧急 hotfix，你该如何处理？ | git stash 暂存当前改动 → git switch main → 从 main 创建 hotfix 分支并修复 → 合并回 main 并推送 → 切回 dev，git stash pop 继续工作。
+
+误将代码提交到了 main，但本意是在 feature 分支，怎么移动？ | git switch -c feature（从当前 main 创建新分支）→ git switch main → git reset --hard HEAD~1（回退 main 一步）→ 之后可在 feature 上继续或推送。
+
+推送时提示 "non-fast-forward" 错误，是什么原因？如何解决？ | 说明远程分支有本地没有的新提交。解决：先 git pull 合并或变基，再重新推送；若确需覆盖可用 --force（慎用）。
+
+如何将多个 commit 合并为一个后再推送？ | 使用 git rebase -i HEAD~n，将 pick 改为 squash 或 fixup，保存后重写提交说明，最后 git push --force（若已推送）。
+
+什么是 Fast-forward 合并？ | 当被合并分支是当前分支的直接祖先时，Git 直接移动指针，不产生新提交。
