@@ -1,11 +1,13 @@
 import os
 import random
 import questionary
+import textdistance
 
 
 def play():
     qa = [] # 问答列表
     j = 0   # 题目编号
+    mode = '=' # 改卷模式
     notes = os.listdir('./notes/')
     notes.append('Exit')
     notes_file = [item.split('.')[0] for item in notes]
@@ -18,20 +20,32 @@ def play():
     # 读取文件
     with open(f'./notes/{note}.txt', 'r', encoding='utf-8') as f:
         lines = f.readlines()
+        if lines[0][:5] == '#### ':
+            mode = lines[0][5]
+            lines.pop(0)
         for line in lines:
             two_col = line.strip().split('|', maxsplit=1)
             qa.append([two_col[0].strip(), two_col[1].strip()])
     # 打乱顺序
     random.shuffle(qa)
     for ql, al in qa:
-        i = 0
+        i = 0 # 重试i次显示答案
         j += 1
         ql = str(j) + '/' + str(len(qa)) + ') ' + ql
         while True:
             i += 1
-            if i == 2: ql += f'({al})'
+            if i == 3: ql += f'({al})'
             a = questionary.text(ql).ask()
-            if a.strip() == al.strip():
+
+            # 文本相似度 Jaccard相似度 Cosine相似度
+            sim1 = textdistance.jaccard.normalized_similarity(a.strip(), al.strip())
+            sim2 = textdistance.cosine.normalized_similarity(a.strip(), al.strip())
+
+            if mode == '=' and (a.strip() == al.strip()): # 全等
+                break
+            if mode == '%' and (sim1 > 0.75 and sim2 > 0.75): # 模糊
+                print(al.strip())
+                print(a.strip())
                 break
     # 返回菜单
     play()

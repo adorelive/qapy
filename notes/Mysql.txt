@@ -14,7 +14,7 @@ SQL分类   | DDL DML DQL DCL
 查看x表的创表sql | show create table x
 给x表新增一个字段(id 数值型 唯一) (第一列) (a1列之后) | alter table x add column id int unique first after a1
 修改x表的id字段为(数值型 主键) | alter table x modify column id int primary key
-修改x表的id字段为carid(数值型) | alter table x change id carid int
+修改x表的id字段为sid(数值型) | alter table x change id sid int
 删除x表的id字段 | alter table x drop column id
 把x表名改为a | alter table x rename a
 删除x表 | drop table x
@@ -23,114 +23,52 @@ SQL分类   | DDL DML DQL DCL
 更新表x前三行的id字段为1 | update x set id=1 where limit 3
 删除x表的前三条数据 | delete from x where limit 3
 快速清空x表 | truncate table x
-
-
-
-
-
-
-### Q: 条件查询
-select *(指定字段) from <表名> where <条件>（比较/逻辑运算符）
-
-### Q: 模糊查询
-select * from <表名> where <字段> like '张%'
-
-### Q: 排序
-select * from <表名> order by <字段> asc(正序) desc(倒叙)
-
-### Q: 限制返回行数
-select * from <表名> limit <行数> offset <偏移量> ;
-
-### Q: 分组+聚合函数
-* select count(*), sum() from <表名> group by <字段>
-* count(计数)/sum(求和)/avg(平均)/max(最大)/min(最小)
-* group_concat(id) 可以用字符串展示出分组后合并的内容
-* select count() from <表名> 聚合函数只用于分组，当只有一组(统计所有)不写 ordre by
-* having 用于分组后的条件筛选
-
-### Q: 合并多个查询结果
-select * from <表名> union [all] select * from <表名>
-
-### Q: 联合查询
-* select *(表一.字段, 表二.字段) from <表一> join <表二> on 条件  内连接，返回交集
-* select * from <表一> left join <表二> on 条件  左连接，返回左表全数据，右表无匹配显示null
-* select * from <表一> right join <表二> on 条件 右连接，返回右表全数据，左表无匹配显示null
-
-### Q: 子查询
-select * from <表> where <字段>=(select <字段> from <表> where 条件); 子查询放到条件
-select *,(select <字段> from <表> where 条件) from 表; 子查询放到字段里只能是一行一列
-
-### Q: null 的特性
-1. 创建表时如果没有设置默认值，则默认值是 null
-2. 和 null 进行比较和算术运算结果仍未 null
-3. null 不参与聚合函数的计算
-4. 排序时 null 会作为最小的一个值
-5. null 值的判断只能通过 is null 和 is not null
-6. null 值的函数有 isnull() 和 ifnull()
-
-### Q: 函数
-字符串函数：
-┌upper(str) 大写 *****
-├lower(str) 小写 *****
-├length(str) 字节长度 *****
-├char_length(str)  字符长度
-├trim(str) trim('str1' from 'str2'去掉两端空格 *
-├lpad(str1,数,str2) 左端填充
-├rpad(str1,数,str2) 右端填充
-├concat(str1,str2) 拼接字符串 *****
-├concat_ws('+', '你好', '世界')
-├group_concat(str,...) 分组连接字符串 *****
-├instr(str1,str2) 查找字符串位置 *****
-├substr(str,数1[,数2]) 截取字符串 *****
-└replace(str1,str2,str3) 整体替换 *****
-
-数值函数：
-┌abs(数) 取绝对值
-├mod(数1,数2)  数1除以数2的余数*****
-├ceil(数)  向上取整
-├floor(数) 向下取整********
-├round(数1,[数2]) 四舍五入******
-├truncate(数[,数2])   截断小数位****
-├sign(数)   判断正1负-1零0
-├rand(数)   随机数**
-└power(数1,数2) 数1的数2次方或开方
-
-逻辑函数：
-isnull(null)     判断是否是 null
-ifnull(null, 1)  如果第一个值是 null，返回第二个值
-coalesce(null, null, 0) 从第一个往后依次查找，返回不是 null 的那个
-if(条件, 1，2)  条件为 true 返回 1， false 返回 2
-// case when then else and
-case when false then 1
-when true then 2
-else 4
-end
-
-时间函数：
-now()
-curdate()
-curtime()
-sysdate()
-year(now()),      -- 年：2026
-month(now()),     -- 月：6
-day(now()),       -- 日：1
-hour(now()),      -- 小时：14
-minute(now()),    -- 分钟：30
-second(now()),    -- 秒：25
-quarter(now()),   -- 季度：2
-week(now()),      -- 周数：22
-dayofweek(now()), -- 星期几（1=周日，7=周六）
-dayofmonth(now()),-- 月中的第几天：1
-dayofyear(now()), -- 年中的第几天：152
-weekday(now());   -- 星期几（0=周一，6=周日）
-datediff('2026-12-31', '2026-06-01');  -- 相差天数：213
-timediff('14:30:25', '10:00:00');      -- 相差时间：04:30:25
-timestampdiff(year, '2000-01-01', now()); -- 年龄/相差年数
-timestampdiff(month, '2000-01-01', now()); -- 相差月数
-timestampdiff(day, '2000-01-01', now());   -- 相差天数
-
-内置函数
-current_user()  当前用户
-user()          当前用户
-database()  	当前数据库
-version()       当前mysql版本
+条件查询，从x表查id(所有)大于1并且小于5 | select id, * from x where id>1 and id<5
+模糊查询x表id包含a | select * from x where id like '%a%'
+x表按id(第二列)排序 (正序) (倒叙) | select * from x order by id 2 asc desc
+从第2条开始返回5行数据 | select * from x limit 5 offset 2
+聚合函数(行数) (求和) (平均) (最大) (最小) | count() sum() avg() max() min()
+基于id分组查询id>1的组 | select * from x group by id having a>1
+查询全表的行数 | select count(*) from x
+合并(不去重)多个查询结果 | select * from x union all select * from x
+根据id联合查询(内连接) (左连接) (右连接)x表的a和s表的a | select x.a, s.a from x left right join s on x.id=s.id
+条件子查询x表的id等于(s表name=1的id) | select * from x where id=(select id from s where name=1)
+查询子查询x表(s表中name=1的id) | select *,(select id from s where name=1) from x
+null的特性(6个) | 默认值 比较和算术 聚合函数 排序 is null is not null isnull() ifnull()
+字符串函数:大写 | upper()
+字符串函数:小写 | lower()
+字符串函数:字节长度 | length()
+字符串函数:字符长度 | char_length()
+字符串函数:去掉两端空格 | trim()
+字符串函数:左端填充(给a填充2个0) | lpad(a, 3, 0)
+字符串函数:右端填充(给a填充2个0) | rpad(a, 3, 0)
+字符串函数:拼接字符串a和b | concat(a, b)
+字符串函数:用+拼接字符串a和b | concat_ws('+', a, b)
+字符串函数:分组查询后拼接相同的字段 | group_concat()
+字符串函数:查找a在b中的位置，未找到返回0 | instr(b, a)
+字符串函数:截取字符串a,从第二个字符截三个 | substr(a, 2, 3)
+字符串函数:a中的o替换为n | replace(a, o, n)
+数值函数:取绝对值 | abs()
+数值函数:求余数  | mod()
+数值函数:向上取整  | ceil()
+数值函数:向下取整  | floor()
+数值函数:n四舍五入保留两位小数  | round(n, 2)
+数值函数:截断小数位  | truncate()
+数值函数:判断正1负-1零0  | sign()
+数值函数:随机数  | rand()
+数值函数:n的m次方或开方  | power(n, m)
+逻辑函数:判断是否是null | isnull()
+逻辑函数:如果第一个值是 null，返回第二个值 | ifnull()
+逻辑函数:从第一个往后依次查找，返回不是 null 的那个 | coalesce()
+逻辑函数:第一个参数为true返回第二个参数，否则返回第三个参数 | if()
+逻辑函数:多条件判断 | case when then else end
+时间函数:当前日期时间 | now()
+时间函数:当前日期 | curdate()
+时间函数:当前时间 | curtime()
+时间函数:星期几（0=周一，6=周日） | weekday()
+时间函数:今天是今年的第几天 | dayofyear(now())
+时间函数:相差天数 | datediff()
+时间函数:相差时间 | timediff()
+内置函数:当前用户 | current_user()
+内置函数:当前数据库 | database()
+内置函数:当前mysql版本 | version()
