@@ -24,6 +24,7 @@ SQL分类   | DDL DML DQL DCL
 删除x表的前三条数据 | delete from x where limit 3
 快速清空x表 | truncate table x
 条件查询，从x表查id(所有)大于1并且小于5 | select id, * from x where id>1 and id<5
+去重查询x表的a字段 | select distinct a from x
 模糊查询x表id包含a | select * from x where id like '%a%'
 x表按id(第二列)排序 (正序) (倒叙) | select * from x order by id 2 asc desc
 从第2条开始返回5行数据 | select * from x limit 5 offset 2
@@ -72,3 +73,13 @@ null的特性(6个) | 默认值 比较和算术 聚合函数 排序 is null is n
 内置函数:当前用户 | current_user()
 内置函数:当前数据库 | database()
 内置函数:当前mysql版本 | version()
+创建用户a只能本地登录(不限主机)密码是b | create user a@localhost % identified by 'b'
+修改用户a(本地登录)的密码为b | alter user a@localhost identified by 'b'
+修改用户a的名称为b |  rename user a@localhost to b@localhost
+查询mysql所有用户名和主机 | select user, host from mysql.user
+删除用户a | drop user a@localhost
+给用户a增加权限：所有权限(所有库所有表)(x库所有表)(x库y表)(赋权权限) | grant all on *.* x.* x.y to a@localhost with grant option
+给用户a撤销权限：撤销删除权限 | revoke delete on *.* from a@localhost
+查看用户a的权限(默认查看自己的) | show grants for a@localhost
+在mysql中导入 x.sql 文件  | source x.sql
+导出a库 (b表) | mysqldump -u -p a (b) > a.sql
