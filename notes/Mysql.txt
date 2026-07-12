@@ -1,85 +1,85 @@
-什么是MySQL?  | 开源关系型数据库
-如何登陆MYSQL (主机) (账号) (密码) (端口)   | mysql -h -u -p -P
-SQL分类   | DDL DML DQL DCL
-创建数据库x   | create database x
-查看所有数据库  |  show databases
-切换x数据库  |  use x
-删除x数据库   |  drop database x
-创建x表 (id 数值型 非空)  |  create table x(id int not null)
-从o表创建x表并插入o的前3条数据  |  create table x select * from o where limit 3
-给字段或表加备注  |  comment
-常用的五种数据类型 | int float() char() varchar() datetime
-常用的五种约束说明 | primary key auto_increment not null unique default
+什么是MySQL | 开源关系型数据库
+登录MySQL（指定主机/账号/密码/端口） | mysql -h -u -p -P
+SQL分类 | DDL DML DQL DCL
+创建数据库x | create database x
+查看所有数据库 | show databases
+切换至x数据库 | use x
+删除数据库x | drop database x
+创建x表（id为数值型/非空） | create table x(id int not null)
+从o表复制结构+前3条数据创建x表 | create table x select * from o limit 3
+给字段或表添加注释 | comment
+常用五种数据类型 | int float() char() varchar() datetime
+常用五种约束 | primary key auto_increment not null unique default
 查看x表结构 | desc x
-查看x表的创表sql | show create table x
-给x表新增一个字段(id 数值型 唯一) (第一列) (a1列之后) | alter table x add column id int unique first after a1
-修改x表的id字段为(数值型 主键) | alter table x modify column id int primary key
-修改x表的id字段为sid(数值型) | alter table x change id sid int
+查看x表的建表SQL | show create table x
+为x表新增id字段（数值型/唯一/放第一列/放a1列之后） | alter table x add column id int unique first after a1
+修改x表的id字段类型为int并设为主键 | alter table x modify column id int primary key
+将x表的id字段改名为sid（类型int） | alter table x change column id sid int
 删除x表的id字段 | alter table x drop column id
-把x表名改为a | alter table x rename a
+将x表重命名为a | alter table x rename a
 删除x表 | drop table x
-给x表的(id, name)插入一条数据(1, a) | insert into x(id, name) values(1, a)
-把o表的前三行插入x表 | insert into x select * from o where limit 3
-更新表x前三行的id字段为1 | update x set id=1 where limit 3
-删除x表的前三条数据 | delete from x where limit 3
-快速清空x表 | truncate table x
-条件查询，从x表查id(所有)大于1并且小于5 | select id, * from x where id>1 and id<5
-去重查询x表的a字段 | select distinct a from x
-模糊查询x表id包含a | select * from x where id like '%a%'
-x表按id(第二列)排序 (正序) (倒叙) | select * from x order by id 2 asc desc
-从第2条开始返回5行数据 | select * from x limit 5 offset 2
-聚合函数(行数) (求和) (平均) (最大) (最小) | count() sum() avg() max() min()
-基于id分组查询id>1的组 | select * from x group by id having a>1
-查询全表的行数 | select count(*) from x
-合并(不去重)多个查询结果 | select * from x union all select * from x
-根据id联合查询(内连接) (左连接) (右连接)x表的a和s表的a | select x.a, s.a from x left right join s on x.id=s.id
-条件子查询x表的id等于(s表name=1的id) | select * from x where id=(select id from s where name=1)
-查询子查询x表(s表中name=1的id) | select *,(select id from s where name=1) from x
-null的特性(6个) | 默认值 比较和算术 聚合函数 排序 is null is not null isnull() ifnull()
-字符串函数:大写 | upper()
-字符串函数:小写 | lower()
-字符串函数:字节长度 | length()
-字符串函数:字符长度 | char_length()
-字符串函数:去掉两端空格 | trim()
-字符串函数:左端填充(给a填充2个0) | lpad(a, 3, 0)
-字符串函数:右端填充(给a填充2个0) | rpad(a, 3, 0)
-字符串函数:拼接字符串a和b | concat(a, b)
-字符串函数:用+拼接字符串a和b | concat_ws('+', a, b)
-字符串函数:分组查询后拼接相同的字段 | group_concat()
-字符串函数:查找a在b中的位置，未找到返回0 | instr(b, a)
-字符串函数:截取字符串a,从第二个字符截三个 | substr(a, 2, 3)
-字符串函数:a中的o替换为n | replace(a, o, n)
-数值函数:取绝对值 | abs()
-数值函数:求余数  | mod()
-数值函数:向上取整  | ceil()
-数值函数:向下取整  | floor()
-数值函数:n四舍五入保留两位小数  | round(n, 2)
-数值函数:截断小数位  | truncate()
-数值函数:判断正1负-1零0  | sign()
-数值函数:随机数  | rand()
-数值函数:n的m次方或开方  | power(n, m)
-逻辑函数:判断是否是null | isnull()
-逻辑函数:如果第一个值是 null，返回第二个值 | ifnull()
-逻辑函数:从第一个往后依次查找，返回不是 null 的那个 | coalesce()
-逻辑函数:第一个参数为true返回第二个参数，否则返回第三个参数 | if()
-逻辑函数:多条件判断 | case when then else end
-时间函数:当前日期时间 | now()
-时间函数:当前日期 | curdate()
-时间函数:当前时间 | curtime()
-时间函数:星期几（0=周一，6=周日） | weekday()
-时间函数:今天是今年的第几天 | dayofyear(now())
-时间函数:相差天数 | datediff()
-时间函数:相差时间 | timediff()
-内置函数:当前用户 | current_user()
-内置函数:当前数据库 | database()
-内置函数:当前mysql版本 | version()
-创建用户a只能本地登录(不限主机)密码是b | create user a@localhost % identified by 'b'
-修改用户a(本地登录)的密码为b | alter user a@localhost identified by 'b'
-修改用户a的名称为b |  rename user a@localhost to b@localhost
-查询mysql所有用户名和主机 | select user, host from mysql.user
+向x表(id, name)插入一条数据(1, 'a') | insert into x(id, name) values(1, 'a')
+将o表前3行数据插入x表 | insert into x select * from o limit 3
+将x表前3行的id字段更新为1 | update x set id=1 limit 3
+删除x表前3行数据 | delete from x limit 3
+快速清空x表（保留结构） | truncate table x
+条件查询x表中id大于1且小于5的所有字段 | select * from x where id>1 and id<5
+查询x表中a字段的唯一值（去重） | select distinct a from x
+模糊查询x表中id包含'a'的记录 | select * from x where id like '%a%'
+按x表id(第二列)排序（正序/倒序） | select * from x order by id 2 asc desc
+x表从第2条开始返回5行数据（分页） | select * from x limit 5 offset 2
+聚合函数：统计行数/求和/平均值/最大值/最小值 | count() sum() avg() max() min()
+x表按id分组，筛选分组后id>1的组 | select * from x group by id having id>1
+查询x表的总行数 | select count(*) from x
+合并多个查询结果x表（不去重） | select * from x union all select * from x
+根据id多表连接查询（内连接/左连接/右连接）x.a和s.a | select x.a, s.a from x join left join right join s on x.id=s.id
+子查询：查询x表中id等于（s表中name=1的id）的记录 | select * from x where id=(select id from s where name=1)
+子查询：在x表查询中附加s表的查询结果（s表中name=1的id） | select *, (select id from s where name=1) from x
+NULL值的六个特性 | 默认值 算数比较 聚合函数 排序 is null is not null isnull() ifnull()
+转大写 | upper()
+转小写 | lower()
+字节长度 | length()
+字符长度 | char_length()
+去除两端空格 | trim()
+左端填充（给a左侧填充2个0，总长3） | lpad(a, 3, 0)
+右端填充（给a右侧填充2个0，总长3） | rpad(a, 3, 0)
+拼接字符串a和b | concat(a, b)
+用'+'拼接字符串a和b | concat_ws('+', a, b)
+分组查询后拼接相同字段 | group_concat()
+查找a在b中的位置（未找到返回0） | instr(b, a)
+截取字符串a，从第2位开始截取3个字符 | substr(a, 2, 3)
+将a中的o替换为n | replace(a, o, n)
+取绝对值 | abs()
+求余数 | mod()
+向上取整 | ceil()
+向下取整 | floor()
+n四舍五入保留两位小数 | round(n, 2)
+截断小数位（不四舍五入） | truncate()
+判断正负：正数1/负数-1/零0 | sign()
+生成随机数 | rand()
+n的m次方或开方 | power(n, m)
+判断是否为NULL | isnull()
+如果第一个值是NULL，返回第二个值，否则返回第一个 | ifnull()
+从参数中依次查找，返回第一个非NULL的值 | coalesce()
+条件判断：第一个参数为true返回第二个，否则返回第三个 | if()
+多条件分支判断 | case when then else end
+当前日期时间 | now()
+当前日期 | curdate()
+当前时间 | curtime()
+星期几（0=周一，6=周日） | weekday()
+今天是今年的第几天 | dayofyear(now())
+计算两个日期相差的天数 | datediff()
+计算两个时间相差的时间差 | timediff()
+当前登录用户 | current_user()
+当前使用的数据库 | database()
+当前MySQL版本 | version()
+创建用户a（仅本地登录/任意主机登录）密码为b | create user a@localhost a@'%' identified by 'b'
+修改用户a（本地登录）的密码为b | alter user a@localhost identified by 'b'
+将用户a（本地登录）重命名为b | rename user a@localhost to b@localhost
+查询MySQL中所有用户名及其登录主机 | select user, host from mysql.user
 删除用户a | drop user a@localhost
-给用户a增加权限：所有权限(所有库所有表)(x库所有表)(x库y表)(赋权权限) | grant all on *.* x.* x.y to a@localhost with grant option
-给用户a撤销权限：撤销删除权限 | revoke delete on *.* from a@localhost
-查看用户a的权限(默认查看自己的) | show grants for a@localhost
-在mysql中导入 x.sql 文件  | source x.sql
-导出a库 (b表) | mysqldump -u -p a (b) > a.sql
+授予用户a全部权限（所有库所有表/x库所有表/x库.y表）并允许向下授权 | grant all on *.* x.* x.y to a@localhost with grant option
+撤销用户a的删除权限 | revoke delete on *.* from a@localhost
+查看用户a的权限（默认查看当前用户） | show grants for a@localhost
+在MySQL中导入x.sql文件 | source x.sql
+导出a库（或a库b表）到SQL文件a | mysqldump -u -p a(a b) > a.sql

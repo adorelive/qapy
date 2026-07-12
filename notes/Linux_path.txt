@@ -1,42 +1,42 @@
-MySql 的配置文件 | /etc/my.cnf
-系统的主机名（计算机名字）的配置文件 | /etc/hostname
-本地 DNS 解析文件的配置文件 | /etc/hosts
-指定 DNS 服务器地址，DNS 解析器的配置 | /etc/resolv.conf
-会话登录执行脚本的配置 | /etc/profile
-打开一个终端执行脚本的配置 | /etc/bashrc
-用户账户信息（用户名、UID、家目录、Shell 等）的配置 | /etc/passwd
-用户密码的加密哈希值和密码过期信息的配置 | /etc/shadow
-用户组信息的配置 | /etc/group
-sudo 权限的配置 | /etc/sudoers
-用户登录的默认策略，如密码有效期、UID 范围的配置 | /etc/login.defs
-网卡的配置文件 | /etc/sysconfig/network-scripts/
-SSH 服务端配置文件，控制是否允许 root 登录、端口号、密钥认证的配置 | /etc/ssh/sshd_config
-系统级定时任务的配置 | /etc/crontab
-登录前和登录后显示欢迎信息的配置 | /etc/motd
-字符集的配置 | /etc/locale.conf
-当前 Linux 系统的发行版名称和版本号的配置 | /etc/redhat-release
-当前操作系统的身份信息的配置 | /etc/os-release
-认证服务的配置 | /etc/pam.d
-系统开机自启动脚本的配置 | /etc/rc.d/rc.local
-家目录下每次打开交互式终端时执行 | .bashrc
-家目录下用户登录时执行一次 | .bash_profile
-家目录下记录你执行过的所有命令历史 | .bash_history
-家目录下每次退出登录 shell 时执行 | .bash_logout
-根目录下基础用户命令 | /bin
-根目录下系统管理命令 | /sbin
-根目录下系统配置文件 | /etc
-根目录下普通用户家目录 | /home
-根目录下超级管理员家目录 | /root
-根目录下设备文件 | /dev
-根目录下虚拟进程文件系统 | /proc
-根目录下可变数据(日志文件) | /var
-根目录下临时文件 | /tmp
-根目录下用户系统资源 | /usr
-根目录下启动文件 | /boot
-系统通用日志(内核、服务、硬件等非认证信息) |  /var/log/messages
-启动日志(系统启动过程中的服务信息) |       /var/log/boot.log
-认证与安全日志(登录尝试、sudo提权等)     |	 /var/log/secure
-定时任务日志(Cron任务执行记录)	     |      /var/log/cron
-邮件服务日志(邮件收发状态)	|      /var/log/maillog
-包管理日志(软件安装、更新、卸载记录)    |  /var/log/yum.log /var/log/dnf.log
-Mysql 的日志文件 | /var/log/mysqld.log
+MySQL数据库配置文件 | /etc/my.cnf
+系统主机名配置文件 | /etc/hostname
+本地DNS解析配置文件 | /etc/hosts
+DNS服务器地址配置文件 | /etc/resolv.conf
+全局环境变量（登录时执行） | /etc/profile
+全局环境变量（打开终端执行） | /etc/bashrc
+用户账户信息（用户名/UID/家目录/Shell等） | /etc/passwd
+用户密码加密哈希与过期信息 | /etc/shadow
+用户组信息 | /etc/group
+sudo权限控制文件 | /etc/sudoers
+用户登录默认策略（密码有效期/UID范围等） | /etc/login.defs
+网卡配置文件目录 | /etc/sysconfig/network-scripts/
+SSH服务端配置（root登录/端口/密钥认证等） | /etc/ssh/sshd_config
+系统级定时任务配置 | /etc/crontab
+登录前后欢迎信息 | /etc/motd
+系统字符集配置 | /etc/locale.conf
+Linux发行版名称与版本号 | /etc/redhat-release
+操作系统身份信息 | /etc/os-release
+认证服务配置目录 | /etc/pam.d
+系统开机自启动脚本 | /etc/rc.d/rc.local
+家目录下的交互式终端每次启动执行 | .bashrc
+家目录下的用户登录时执行一次 | .bash_profile
+家目录下的命令历史记录 | .bash_history
+家目录下的退出登录Shell时执行 | .bash_logout
+基础用户命令存放目录 | /bin
+系统管理命令存放目录 | /sbin
+系统配置文件存放目录 | /etc
+普通用户家目录 | /home
+超级管理员家目录 | /root
+设备文件存放目录 | /dev
+虚拟进程文件系统 | /proc
+可变数据存放目录（日志等） | /var
+临时文件存放目录 | /tmp
+用户系统资源存放目录 | /usr
+启动文件存放目录 | /boot
+系统通用日志（内核/服务/硬件等） | /var/log/messages
+系统启动日志（服务启动信息） | /var/log/boot.log
+认证与安全日志（登录/sudo提权等） | /var/log/secure
+定时任务执行日志 | /var/log/cron
+邮件服务日志 | /var/log/maillog
+软件包管理日志（安装/更新/卸载） | /var/log/yum.log /var/log/dnf.log
+MySQL数据库日志 | /var/log/mysqld.log

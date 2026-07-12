@@ -1,88 +1,88 @@
-超级管理员盘符/家目录/UID |  # /root 0
-普通用户盘符/x家目录/UID>?  | $ /home/x 1000
-当前登录用户名 | whoami
-查询x用户信息  | id x
-当前所在文件系统路径 |  pwd
-查看 ip 地址 |  ip a
-查看主机名 (查看IP) |  hostname -I
-复制 (递归目录) |  cp -r
-移动/重命名  | mv
-删除 (目录) (不询问),{a..z} {1..9}，*(0或多个) | rm -r -f
-查看目录 (详细信息) (隐藏文件) (显示单位) (索引号) | ls -l -a -h -i
-创建目录 (同时创建父目录) 创建多个{a..z} {1..9}  | mkdir -p
-切换目录 (当前) (上层) (上次的目录) (家目录) |  cd . .. - ~
+超级管理员：盘符/家目录/UID | # /root 0
+普通用户x：盘符/家目录/UID | $ /home/x 1000
+查看当前登录用户名 | whoami
+查询x用户信息 | id x
+查看当前所在路径 | pwd
+查看IP地址 | ip a
+查看主机名（及IP） | hostname -I
+复制文件/目录（递归） | cp -r
+移动/重命名 | mv
+删除文件/目录（强制/递归），支持{a..z}{1..9}及*通配符 | rm -r -f
+查看目录（详细信息/隐藏文件/人性化大小/索引节点） | ls -l -a -h -i
+创建目录（含父目录），支持批量{a..z}{1..9} | mkdir -p
+切换目录（当前/上级/上一次/家目录） | cd . .. - ~
 显示目录树形结构 | tree
-创建空文件 `date` 时间 | touch
-时间 (年) (月) (日) (日期) (时间) | date +%Y +%m +%d +%F +%T
-打印输出 | echo
-覆盖/追加到文本 | > >>
-中间文本b可换行书写x | <<xbx
-显示文件内容 (显示行号) | cat -n
-阅读文件两个命令 | less more
-查看前10行 (指定行数) | head -n
-查看后10行 (指定行数) (动态监控文件变化) | tail -n -f
-文本过滤 x (大小写) (行号) (计数) | grep -i -n -c x
-命令历史 (清楚本次会话历史) | history -c
-查看命令的存放位置 | which
-查看安装包的位置  | whereis
+创建空文件,可以以`date`命名 | touch
+显示时间（年/月/日/日期/时间） | date +%Y +%m +%d +%F +%T
+打印输出内容 | echo
+覆盖/追加内容到文件 | > >>
+多行文本输入（以x为结束标记） | <<x
+查看文件内容（显示行号） | cat -n
+分页阅读文件（两个命令） | less more
+查看文件前10行（可指定行数） | head -n
+查看文件后10行（可指定行数/动态跟踪） | tail -n -f
+过滤文本x（忽略大小写/显示行号/统计行数） | grep -i -n -c x
+查看命令历史（清空本次会话历史） | history -c
+查看命令存放位置 | which
+查看程序相关文件位置 | whereis
 设置/取消别名x | alias unalias x=x
-查看后台任务 (显示pid) | jobs -l
-让后台任务x回到前台 | fg x
-在后台运行已暂停任务x | bg x
+查看后台任务（显示进程ID） | jobs -l
+将后台任务x调回前台 | fg x
+将已暂停任务x放入后台运行 | bg x
 统计x文件行数 | wc x
-x文件类型 | file x
-查看x文件访问修改时间 | stat x
-查看x文件夹大小  | du x
-查看磁盘使用 | df
-查看内存使用 | free
-查看所有块设备，u盘，硬盘 | lsblk
-在线软件管理工具 (安装) (删除) (查找) x | yum install remove search x
-手动安装适合离线安装 (查询已安装) | rpm -ql
-源码编译和安装   | make make install
-给o创软连接n | ln -s o n
-(启动，停止 状态，重启，开机启动，关闭开机启动) 服务x | systemctl start stop status restart enable disable x
-立即 重启/关机/取消 | shutdown -r -h -c now
-FTP 文件传输登录root ip (本地命令ls) (下载) (上传) | sftp root@ip lls get put
-ssh下载文件 (目录) root ip /server /local | scp -r root@ip:/server /local
-ssh上传文件 (目录) root ip /server /local | scp -r /local root@ip:/server
-定时任务 (查看) (编辑) (清空) (文件所在目录) | crontab -l -e -r /var/spool/cron/
-系统版本 (看所有)  | uname -a
-查看组x  | groups x
-创建组 | groupadd
-创建用户 (UID) (主组) (附组) (备注) x | useradd -u -g -G -c x
-修改用户x的密码 | passwd x
-非交互设置用户x的密码x | echo | passwd --stdin x
-修改用户 | usermod
-删除用户 (删除相关文件) | userdel -r
-切换用户 (完全切换) | su -
-临时提权 (查看权限) (模拟root) | sudo -l -i
-编辑提权文件 | visudo
-最近登录信息五个命令 | last lastb lastlog w who
-文件权限读/写/执行的组合的字母(数字)表示 | rwx(421) rw(6) rx(5) wx(3) rwx(7)
-文件的所属字母(主) (组) (其他) (所有) | u g o a
-目录和文件的默认权限是 | 755 644
-x文件赋权 (数字全部权限) (主读权限) (所有用户拥有主权限) (共享目录) | chmod 777 u+r u+s o+t x
-修改x文件主a和组b  | chown a.b x
-查看文件的隐藏属性  | lsattr
-设置文件为只读文件 | chattr +i
-查找 / 下文件 (访问时间天) (文件名) (类型) (逻辑条件) (大小) (执行命令) | find -atime -name -type -a -o ! -size -exec /
-查看进程  | ps -ef
-查看动态进程 | top
-杀死进程 (强制结束) (释放完资源在结束) (重新加载一次) | kill -9 -15 -1
-zip (压缩文件夹) / 压缩为 x.zip | zip -r x.zip /
-zip 解压 x.zip  | unzip x.zip
-tar 压缩 / 为 x.tar.gz | tar -czvf x.tar.gz /
-tar 解压 (查看包里的文件) (解压到指定目录) x.tar.gz  | tar -xzvf -tf -C x.tar.gz
-管道符，前面的输出是后面的输入 | |
-左命令失败执行右边命令 | ||
-左命令成功执行右边命令 | &&
-后台执行命令  | &
-通过http下载网络资源 | wget
-发送网络请求 | curl
-端口号管理 | netstat -lntup
-简单的端口连通性测试  | telnet
-复杂的端口连通性测试 (监听模式) (监听端口) (详细输出) (端口扫描) (连接建立执行程序) (不使用DNS) | nc -l -p -v -z -e -n
-探测开放的端口(主机发现 ip/24) (指定端口22,443) (综合信息收集) | nmap -sn ip/24 -p22,443 -A
-网络诊断，追踪数据包经过的每一个“跳点” | traceroute
-网络抓包 (监听的网卡) (不使用DNS) (详细信息) (只抓取指定数量) (抓取完整内容) (写入文件) (显示正文) | tcpdump -i -n -v -c -s 0 -w .pcap -X
-网络抓包过滤 (tcp) (主机) (端口) (逻辑操作) | tcpdump tcp host port and or not
+查看x文件类型 | file x
+查看x文件访问/修改时间 | stat x
+查看x目录/文件大小 | du x
+查看磁盘使用情况 | df
+查看内存使用情况 | free
+查看所有块设备（硬盘/U盘等） | lsblk
+在线软件管理工具（安装/删除/搜索）x | yum install remove search x
+离线安装包管理（查询已安装） | rpm -ql
+源码编译和安装 | make make install
+为o创建软链接n | ln -s o n
+管理系统服务x（启动/停止/状态/重启/开机自启/取消自启） | systemctl start stop status restart enable disable x
+立即重启/关机/取消 | shutdown -r -h -c now
+FTP文件传输（登录root@ip，看本地目录，下载/上传） | sftp root@ip lls get put
+SSH下载文件/目录（从服务器到本地） | scp -r root@ip:/server /local
+SSH上传文件/目录（从本地到服务器） | scp -r /local root@ip:/server
+定时任务（查看/编辑/清空/任务文件目录） | crontab -l -e -r /var/spool/cron/
+查看系统版本（全部信息） | uname -a
+查看x所属组 | groups x
+创建用户组 | groupadd
+创建用户x（指定UID/主组/附加组/备注） | useradd -u -g -G -c x
+修改用户x密码 | passwd x
+非交互式设置用户x密码为x | echo x | passwd --stdin x
+修改用户信息 | usermod
+删除用户x（同时删除相关文件） | userdel -r
+切换用户（完全切换环境） | su -
+临时提权（查看权限/模拟root环境） | sudo -l -i
+编辑sudo权限配置文件 | visudo
+查看最近登录信息（五个相关命令） | last lastb lastlog w who
+权限字母与数字对应关系（读/写/执行） | rwx(421) rw(6) rx(5) wx(3) rwx(7)
+权限所属对象（所有者/所属组/其他人/全部） | u g o a
+目录与文件默认权限 | 755 644
+修改x文件权限（数字赋权/增加读权限/继承所有者权限/设置粘滞位） | chmod 777 u+r u+s o+t x
+修改x文件所有者为a、所属组为b | chown a.b x
+查看文件隐藏属性 | lsattr
+设置文件为只读（不可修改/删除/追加） | chattr +i
+在/下查找文件（按访问天数/文件名/类型/逻辑组合/大小/执行操作） | find -atime -name -type -a -o ! -size -exec /
+查看进程列表 | ps -ef
+查看动态进程（实时监控） | top
+终止进程（强制/优雅终止/重新加载配置） | kill -9 -15 -1
+ZIP压缩目录/为x.zip | zip -r x.zip /
+解压x.zip（指定解压目录） | unzip x.zip -d
+TAR打包压缩/为x.tar.gz | tar -czvf x.tar.gz /
+解压x.tar.gz（查看包内容/解压到指定目录） | tar -xzvf -tf x.tar.gz -C
+管道（前命令输出作为后命令输入） | |
+前命令失败则执行后命令 | ||
+前命令成功则执行后命令 | &&
+后台执行某个命令 | &
+通过HTTP下载网络资源 | wget
+发送HTTP网络请求 | curl
+查看端口监听状态 | netstat -lntup
+简单端口连通性测试 | telnet
+端口测试工具（监听模式/指定端口/详细输出/端口扫描/执行程序） | nc -l -p -v -z -e
+端口扫描（单IP/网段24/Ping发现/指定端口/强力扫描） | nmap ip ip/24 -sn -p -A
+路由追踪（使用ICMP协议） | traceroute -I
+抓包工具（指定网卡/数量/详细/完整数据包/写入文件/读取文件/ASCII显示） | tcpdump -i -c -v -s 0 -w .pcap -r -A
+抓包过滤条件（按主机/源目标IP/端口/协议/组合逻辑） | tcpdump host src/dst port tcp and or not

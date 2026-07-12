@@ -1,0 +1,44 @@
+{
+    "notes": [
+        {
+            "name": "BGit",
+            "right_count": 0,
+            "done_count": 0
+        },
+        {
+            "name": "BMarkdown",
+            "right_count": 0,
+            "done_count": 0
+        },
+        {
+            "name": "English",
+            "right_count": 0,
+            "done_count": 0
+        },
+        {
+            "name": "Linux_base",
+            "right_count": 0,
+            "done_count": 2
+        },
+        {
+            "name": "Linux_path",
+            "right_count": 0,
+            "done_count": 0
+        },
+        {
+            "name": "Mysql",
+            "right_count": 0,
+            "done_count": 2
+        },
+        {
+            "name": "Network",
+            "right_count": 0,
+            "done_count": 0
+        },
+        {
+            "name": "Vim",
+            "right_count": 2,
+            "done_count": 2
+        }
+    ]
+}
