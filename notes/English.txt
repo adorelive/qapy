@@ -29,4 +29,5 @@
 备份(当普) | dump
 撤销(瑞我克) | revoke
 独特(第四定克特)  | distinct
+               | firewalld
 

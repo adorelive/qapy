@@ -11,7 +11,6 @@
 查看目录（详细信息/隐藏文件/人性化大小/索引节点） | ls -l -a -h -i
 创建目录（含父目录），支持批量{a..z}{1..9} | mkdir -p
 切换目录（当前/上级/上一次/家目录） | cd . .. - ~
-显示目录树形结构 | tree
 创建空文件,可以以`date`命名 | touch
 显示时间（年/月/日/日期/时间） | date +%Y +%m +%d +%F +%T
 打印输出内容 | echo
@@ -69,20 +68,8 @@ SSH上传文件/目录（从本地到服务器） | scp -r /local root@ip:/serve
 查看进程列表 | ps -ef
 查看动态进程（实时监控） | top
 终止进程（强制/优雅终止/重新加载配置） | kill -9 -15 -1
-ZIP压缩目录/为x.zip | zip -r x.zip /
-解压x.zip（指定解压目录） | unzip x.zip -d
-TAR打包压缩/为x.tar.gz | tar -czvf x.tar.gz /
-解压x.tar.gz（查看包内容/解压到指定目录） | tar -xzvf -tf x.tar.gz -C
 管道（前命令输出作为后命令输入） | |
 前命令失败则执行后命令 | ||
 前命令成功则执行后命令 | &&
 后台执行某个命令 | &
-通过HTTP下载网络资源 | wget
-发送HTTP网络请求 | curl
 查看端口监听状态 | netstat -lntup
-简单端口连通性测试 | telnet
-端口测试工具（监听模式/指定端口/详细输出/端口扫描/执行程序） | nc -l -p -v -z -e
-端口扫描（单IP/网段24/Ping发现/指定端口/强力扫描） | nmap ip ip/24 -sn -p -A
-路由追踪（使用ICMP协议） | traceroute -I
-抓包工具（指定网卡/数量/详细/完整数据包/写入文件/读取文件/ASCII显示） | tcpdump -i -c -v -s 0 -w .pcap -r -A
-抓包过滤条件（按主机/源目标IP/端口/协议/组合逻辑） | tcpdump host src/dst port tcp and or not
