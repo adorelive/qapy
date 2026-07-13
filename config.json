@@ -17,8 +17,8 @@
         },
         {
             "name": "Linux_base",
-            "right_count": 0,
-            "done_count": 2
+            "right_count": 1,
+            "done_count": 3
         },
         {
             "name": "Linux_path",
@@ -28,7 +28,7 @@
         {
             "name": "Mysql",
             "right_count": 0,
-            "done_count": 2
+            "done_count": 3
         },
         {
             "name": "Network",
@@ -39,6 +39,11 @@
             "name": "Vim",
             "right_count": 2,
             "done_count": 2
+        },
+        {
+            "name": "Linux_lib",
+            "right_count": 0,
+            "done_count": 0
         }
     ]
 }
