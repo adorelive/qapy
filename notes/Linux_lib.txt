@@ -11,4 +11,4 @@ TAR打包压缩/为x.tar.gz | tar -czvf x.tar.gz /
 路由追踪（使用ICMP协议） | traceroute -I
 抓包工具（指定网卡/数量/详细/完整数据包/写入文件/读取文件/ASCII显示） | tcpdump -i -c -v -s 0 -w .pcap -r -A
 抓包过滤条件（按主机/源目标IP/端口/协议/组合逻辑） | tcpdump host src/dst port tcp and or not
-防火墙管理 (重载配置)(永久有效)(查看手动添加的端口)(查看服务自动开放的端口)(开放端口)(移除端口) | firewall-cmd --reload --permanent --list-ports --list-services --add-port= --remove-port=
+防火墙管理 (重载配置)(永久有效)(查看手动添加的端口)(查看服务开放的端口)(开放端口)(移除端口)(设置区域) | firewall-cmd --reload --permanent --list-ports --list-services --add-port= --remove-port= --zone=
