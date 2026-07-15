@@ -1,75 +1,100 @@
-超级管理员：盘符/家目录/UID | # /root 0
-普通用户x：盘符/家目录/UID | $ /home/x 1000
+#### = 2026/7/16
+超级管理员的盘符 | #
+超级管理员的UID | 0
+普通用户的盘符 | $
+普通用户的UID大于 | 1000
 查看当前登录用户名 | whoami
-查询x用户信息 | id x
+查询当前用户信息(查看x用户) | id x
 查看当前所在路径 | pwd
 查看IP地址 | ip a
-查看主机名（及IP） | hostname -I
-复制文件/目录（递归） | cp -r
-移动/重命名 | mv
-删除文件/目录（强制/递归），支持{a..z}{1..9}及*通配符 | rm -r -f
-查看目录（详细信息/隐藏文件/人性化大小/索引节点） | ls -l -a -h -i
-创建目录（含父目录），支持批量{a..z}{1..9} | mkdir -p
-切换目录（当前/上级/上一次/家目录） | cd . .. - ~
-创建空文件,可以以`date`命名 | touch
-显示时间（年/月/日/日期/时间） | date +%Y +%m +%d +%F +%T
+查看主机名(IP) | hostname -I
+复制文件(目录) | cp -r
+移动或者重命名 | mv
+删除文件(目录)(不询问),支持*通配符 | rm -r -f
+查看目录下文件的(详细信息)(隐藏文件)(易读大小)(索引节点) | ls -l -a -h -i
+创建目录(同时创建父目录) | mkdir -p
+切换目录(当前)(上级)(上次所在目录)(家目录) | cd . .. - ~
+创建空文件(以当前时间命名) | touch `date`
+显示时间(年)(月)(日)(日期)(时间) | date +%Y +%m +%d +%F +%T
 打印输出内容 | echo
-覆盖/追加内容到文件 | > >>
-多行文本输入（以x为结束标记） | <<x
-查看文件内容（显示行号） | cat -n
-分页阅读文件（两个命令） | less more
-查看文件前10行（可指定行数） | head -n
-查看文件后10行（可指定行数/动态跟踪） | tail -n -f
-过滤文本x（忽略大小写/显示行号/统计行数） | grep -i -n -c x
-查看命令历史（清空本次会话历史） | history -c
-查看命令存放位置 | which
-查看程序相关文件位置 | whereis
-设置/取消别名x | alias unalias x=x
-查看后台任务（显示进程ID） | jobs -l
-将后台任务x调回前台 | fg x
-将已暂停任务x放入后台运行 | bg x
+覆盖内容到文件 | >
+追加内容到问价 | >>
+多行文本输入(以x为开始和结束标记) | <<x
+查看文件内容(显示行号) | cat -n
+分页查看文本文件(两个命令) | less more
+查看文件前10行(可指定行数) | head -n
+查看文件后10行(可指定行数) | tail -n
+查看文件后10行(动态跟踪) | tail -f
+过滤文本(忽略大小写)(显示行号)(统计行数) | grep -i -n -c
+查看命令历史(清空本次会话历史) | history -c
+查看执行程序的存放位置 | which
+查看执行程序相关文件的位置 | whereis
+设置别名x等于y | alias x=y
+取消别名x | unalias x
+查看后台任务(显示进程ID) | jobs -l
+将后台任务x在前台显示 | fg x
+将暂停的任务x放入后台运行 | bg x
 统计x文件行数 | wc x
 查看x文件类型 | file x
-查看x文件访问/修改时间 | stat x
-查看x目录/文件大小 | du x
+查看x文件访问和修改时间 | stat x
+查看x目录或文件大小 | du x
 查看磁盘使用情况 | df
 查看内存使用情况 | free
-查看所有块设备（硬盘/U盘等） | lsblk
-在线软件管理工具（安装/删除/搜索）x | yum install remove search x
-离线安装包管理（查询已安装） | rpm -ql
-源码编译和安装 | make make install
+查看所有块设备包括硬盘U盘等 | lsblk
 为o创建软链接n | ln -s o n
-管理系统服务x（启动/停止/状态/重启/开机自启/取消自启） | systemctl start stop status restart enable disable x
-立即重启/关机/取消 | shutdown -r -h -c now
-FTP文件传输（登录root@ip，看本地目录，下载/上传） | sftp root@ip lls get put
-SSH下载文件/目录（从服务器到本地） | scp -r root@ip:/server /local
-SSH上传文件/目录（从本地到服务器） | scp -r /local root@ip:/server
-定时任务（查看/编辑/清空/任务文件目录） | crontab -l -e -r /var/spool/cron/
-查看系统版本（全部信息） | uname -a
-查看x所属组 | groups x
+启动系统服务x | systemctl start x
+停止系统服务x | systemctl stop x
+查看系统服务x状态 | systemctl status x
+重启系统服务x | systemctl restart x
+设置系统服务x开机自启 | systemctl enable x
+关闭启动系统服务x开机自启 | systemctl disable x
+立即重启计算机 | shutdown -r now
+5分钟后关闭计算机 | shutdown -h +5
+取消重启或关闭计算机 | shutdown -c
+使用SFTP传输文件(登录root@ip)(查看本地目录)(下载本地)(上传远端) | sftp root@ip lls get put
+使用SSH从root@ip下载(目录)/a到本地的/b | scp -r root@ip:/a /b
+使用SSH从本地上传(目录)/b到root@ip的/a | scp -r /b root@ip:/a
+定时任务(查看)(编辑)(清空) | crontab -l -e -r
+查看系统版本(所有信息) | uname -a
+查看用户x所属的组 | groups x
 创建用户组 | groupadd
-创建用户x（指定UID/主组/附加组/备注） | useradd -u -g -G -c x
-修改用户x密码 | passwd x
+创建用户x(指定UID)(所属主组)(附加组)(备注) | useradd -u -g -G -c x
+修改用户x的密码 | passwd x
 非交互式设置用户x密码为x | echo x | passwd --stdin x
 修改用户信息 | usermod
-删除用户x（同时删除相关文件） | userdel -r
-切换用户（完全切换环境） | su -
-临时提权（查看权限/模拟root环境） | sudo -l -i
+删除用户x(同时删除相关文件) | userdel -r
+切换用户(完全切换环境) | su -
+临时提权(查看权限)(模拟root环境) | sudo -l -i
 编辑sudo权限配置文件 | visudo
-查看最近登录信息（五个相关命令） | last lastb lastlog w who
-权限字母与数字对应关系（读/写/执行） | rwx(421) rw(6) rx(5) wx(3) rwx(7)
-权限所属对象（所有者/所属组/其他人/全部） | u g o a
+查看当前哪些用户在线(两个两名) | w who
+查看成功的历史登录记录 | last
+查看失败的历史登录记录 | lastb
+查看每个用户最近一次登录的时间 | lastlog
+文件目录权限的字母和数字表示 | rwx-(4210)
+权限所属对象的字母表示(所有者)(所属组)(其他人)(全部) | u g o a
 目录与文件默认权限 | 755 644
-修改x文件权限（数字赋权/增加读权限/继承所有者权限/设置粘滞位） | chmod 777 u+r u+s o+t x
-修改x文件所有者为a、所属组为b | chown a.b x
-查看文件隐藏属性 | lsattr
-设置文件为只读（不可修改/删除/追加） | chattr +i
-在/下查找文件（按访问天数/文件名/类型/逻辑组合/大小/执行操作） | find -atime -name -type -a -o ! -size -exec /
-查看进程列表 | ps -ef
-查看动态进程（实时监控） | top
-终止进程（强制/优雅终止/重新加载配置） | kill -9 -15 -1
-管道（前命令输出作为后命令输入） | |
-前命令失败则执行后命令 | ||
-前命令成功则执行后命令 | &&
-后台执行某个命令 | &
-查看端口监听状态 | netstat -lntup
+赋予x文件所有权限 | chmod 777 x
+赋予x文件所属组读权限 | chmod g+r x
+赋予x文件所属组属主权限 | chmod g+s x
+赋予x文件为共享目录 | chmod +t x
+修改x文件所有者为a,所属组为b | chown a.b x
+查看目录下文件的隐藏属性 | lsattr
+设置文件为只读(不可更改) | chattr +i
+查看所有进程(显示父进程) | ps -ef
+查看所有进程(资源占用情况)  | ps aux
+查看实时动态进程 | top
+终止进程(强制)(优雅终止)(重启) | kill -9 -15 -1
+管道符（前命令输出作为后命令输入） | |
+逻辑或,前命令失败则执行后命令 | ||
+逻辑与,前命令成功则执行后命令 | &&
+后台执行命令 | &
+查看端口监听状态(显示正在监听的所有端口) | netstat -lntup
+按文件名查找/下的文件x,支持通配符 | find / -name x
+按文件类型查找/下的普通文件 | find / -type f
+按文件大小查找/下的大于50M的文件 | find / -size +50M
+按修改时间查找/下的最近三天修改过的文件 | find / -mtime -3
+按权限查找/下的拥有所有权限的文件 | find / -perm 777
+按所有者查找/下的属于root的文件 | find / -user root
+查找/下的文件并对每个找到的文件执行删除命令 | find / -exec rm {} \;
+查找/下的文件并对每个找到的文件执行删除命令,执行前先询问确认 | find / -ok rm {} \;
+查找/下的文件并组合多个条件(与)(或)(非) | find / -a -o !
