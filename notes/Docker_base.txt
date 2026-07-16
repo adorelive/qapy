@@ -8,11 +8,14 @@
 从x.tar.gz文件导入镜像 | docker load -i x.tar.gz
 导出容器x的快照为x.tar | docker export -o x.tar x
 通过容器快照x.tar创建镜像x | docker import x.tar x
-通过镜像x创建容器(自定义容器名称a) | docker run --name a x
-通过镜像x创建容器(主机8080端口映射到容器80端口) | docker run -p 8080:80 x
 通过镜像x创建容器(后台运行容器) | docker run -d x
 通过镜像x创建容器(立即进入容器) | docker run -it x /bin/bash
+通过镜像x创建容器(自定义容器名称a) | docker run --name a x
+通过镜像x创建容器(主机8080端口映射到容器80端口) | docker run -p 8080:80 x
 通过镜像x创建容器(主机的/a挂载到容器的/b) | docker run -v /a:/b x
+通过镜像x创建容器(指定容器的网卡为s) | docker run --network s x
+通过镜像x创建容器设置重启策略(不重启)(总是重启) | docker run --restart no always x
+通过镜像x创建容器设置重启策略(异常重启)(设置重启3次) | docker run --restart unless-stopped on-failure:3 x
 容器x的(启动)(停止)(重启) | docker start stop restart x
 删除已停止的容器x(强制删除) | docker rm x -f
 进入运行中容器x的Shell | docker exec -it x /bin/bash
@@ -26,23 +29,14 @@
 查看容器x的端口映射 | docker port x
 将容器x的当前状态保存为一个新的镜像s | docker commit x s
 重命名容器x为s | docker rename x s
-
-
-
-
-https://www.runoob.com/docker/docker-command-manual.html
-info|version
-
-
-
-
-
-
-
-
-根据x镜像创建并启动一个新容器(后台运行)(交互模式)(命名)(端口映射) | docker run -d -it --name -p 宿主:容器
-查看 Docker 版本信息 | docker version
-查看系统范围的详细信息(容器数、镜像数等) | docker info
-查看 Docker 的磁盘使用情况 | docker system df
-
-
+显示Docker客户端和服务端的版本信息 | docker version
+列出所有网卡 | docker network ls
+创建一个新的网卡 | docker network create x
+删除网卡x | docker network rm x
+将容器x连接到网络s | docker network connect s x
+断开容器x和网络s的连接 | docker network disconnect s x
+列出所有的数据卷 | docker volume ls
+创建一个新的数据卷x | docker volume create x
+显示数据卷x的详细信息 | docker volume inspect x
+删除指定的卷x | docker volume rm x
+查看Docker的磁盘使用情况 | docker system df

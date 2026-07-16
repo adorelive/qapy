@@ -49,6 +49,36 @@
             "name": "Docker",
             "right_count": 0,
             "done_count": 0
+        },
+        {
+            "name": "Docker_base",
+            "right_count": 0,
+            "done_count": 0
+        },
+        {
+            "name": "Docker_compose",
+            "right_count": 0,
+            "done_count": 0
+        },
+        {
+            "name": "Linux_pack",
+            "right_count": 0,
+            "done_count": 0
+        },
+        {
+            "name": "Shell",
+            "right_count": 0,
+            "done_count": 0
+        },
+        {
+            "name": "ZGit",
+            "right_count": 0,
+            "done_count": 0
+        },
+        {
+            "name": "ZMarkdown",
+            "right_count": 0,
+            "done_count": 0
         }
     ]
 }
