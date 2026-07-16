@@ -7,8 +7,10 @@ TAR打包压缩/为x.tar.gz | tar -czvf x.tar.gz /
 发送HTTP网络请求 | curl
 简单端口连通性测试 | telnet
 端口测试工具（监听模式/指定端口/详细输出/端口扫描/执行程序） | nc -l -p -v -z -e
-端口扫描（单IP/网段24/Ping发现/指定端口/强力扫描） | nmap ip ip/24 -sn -p -A
+端口扫描（单IP/网段24/Ping发现/ARP发现/指定端口/强力扫描/禁用DNS反向解析） | nmap ip ip/24 -sn -PR -p -A -n
 路由追踪（使用ICMP协议） | traceroute -I
 抓包工具（指定网卡/数量/详细/完整数据包/写入文件/读取文件/ASCII显示） | tcpdump -i -c -v -s 0 -w .pcap -r -A
 抓包过滤条件（按主机/源目标IP/端口/协议/组合逻辑） | tcpdump host src/dst port tcp and or not
 防火墙管理 (重载配置)(永久有效)(查看手动添加的端口)(查看服务开放的端口)(开放端口)(移除端口)(设置区域) | firewall-cmd --reload --permanent --list-ports --list-services --add-port= --remove-port= --zone=
+iptables |
+ufw |
