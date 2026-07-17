@@ -1,6 +1,6 @@
 查找命令位置(威奇) | which
 查看文件状态(斯达特) | stat  
-定时任务表(克软塔布) | crontab  
+定时任务表(克软它布) | crontab
 命令别名(诶里阿斯) | alias  
 拥有者(欧恩) | own  
 影子密码文件(沙斗) | shadow  
@@ -15,11 +15,11 @@
 自增(因克门特) | increment
 唯一(优尼克) | unique  
 修改表结构(奥特尔) | alter  
-列(卡冷) | column  
+列(卡乐木) | column
 清空表(特软凯特) | truncate  
-向上取整(c奥) | ceil
+向上取整(C欧) | ceil
 向下取整(弗洛尔) | floor  
-四舍五入(ri wu ong德) | round
+四舍五入(riuong的) | round
 合并(扣我来斯) | coalesce
 全局(格楼波) | global  
 分支(布软尺) | branch  
@@ -29,5 +29,4 @@
 备份(当普) | dump
 撤销(瑞我克) | revoke
 独特(第四定克特)  | distinct
-               | firewalld
-
+防火墙(发尔沃德) | firewalld

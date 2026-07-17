@@ -1,16 +1,21 @@
-显示目录树形结构 | tree
+查看所有的一次性计划任务 | atq
+删除id为2一次性计划任务 | atrm 2
+执行一次性计划任务的服务(在2024年1月1日2:00执行ls) | at 2:00 2024-1-1 ls ctrl+d
+显示目录树形结构(只显示两层目录) | tree -L 2
+显示目录树形结构(只显示目录)(显示隐藏文件) | tree -d -a
 ZIP压缩目录/为x.zip | zip -r x.zip /
-解压x.zip（指定解压目录） | unzip x.zip -d
+解压x.zip(指定解压目录) | unzip x.zip -d
 TAR打包压缩/为x.tar.gz | tar -czvf x.tar.gz /
-解压x.tar.gz（查看包内容/解压到指定目录） | tar -xzvf -tf x.tar.gz -C
+TAR查看包x.tar.gz内的文件 | tar -tf x.tar.gz
+解压x.tar.gz(解压到指定目录) | tar -xzvf x.tar.gz -C
 通过HTTP下载网络资源 | wget
 发送HTTP网络请求 | curl
 简单端口连通性测试 | telnet
-端口测试工具（监听模式/指定端口/详细输出/端口扫描/执行程序） | nc -l -p -v -z -e
-端口扫描（单IP/网段24/Ping发现/ARP发现/指定端口/强力扫描/禁用DNS反向解析） | nmap ip ip/24 -sn -PR -p -A -n
-路由追踪（使用ICMP协议） | traceroute -I
-抓包工具（指定网卡/数量/详细/完整数据包/写入文件/读取文件/ASCII显示） | tcpdump -i -c -v -s 0 -w .pcap -r -A
-抓包过滤条件（按主机/源目标IP/端口/协议/组合逻辑） | tcpdump host src/dst port tcp and or not
+端口测试工具(监听模式/指定端口/详细输出/端口扫描/执行程序) | nc -l -p -v -z -e
+端口扫描(单IP/网段24/Ping发现/ARP发现/指定端口/强力扫描/禁用DNS反向解析) | nmap ip ip/24 -sn -PR -p -A -n
+路由追踪(使用ICMP协议) | traceroute -I
+抓包工具(指定网卡/数量/详细/完整数据包/写入文件/读取文件/ASCII显示) | tcpdump -i -c -v -s 0 -w .pcap -r -A
+抓包过滤条件(按主机/源目标IP/端口/协议/组合逻辑) | tcpdump host src/dst port tcp and or not
 防火墙管理 (重载配置)(永久有效)(查看手动添加的端口)(查看服务开放的端口)(开放端口)(移除端口)(设置区域) | firewall-cmd --reload --permanent --list-ports --list-services --add-port= --remove-port= --zone=
 iptables |
 ufw |

@@ -42,3 +42,4 @@ Linux发行版名称与版本号 | /etc/redhat-release
 centos软件包管理日志(安装/更新/卸载) | /var/log/yum.log
 MySQL数据库日志 | /var/log/mysqld.log
 存放用户级定时任务的目录 | /var/spool/cron
+存放用户的邮件 | /var/spool/mail/

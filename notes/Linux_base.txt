@@ -44,12 +44,6 @@
 查看内存使用情况 | free
 查看所有块设备包括硬盘U盘等 | lsblk
 为o创建软链接n | ln -s o n
-启动系统服务x | systemctl start x
-停止系统服务x | systemctl stop x
-查看系统服务x状态 | systemctl status x
-重启系统服务x | systemctl restart x
-设置系统服务x开机自启 | systemctl enable x
-关闭启动系统服务x开机自启 | systemctl disable x
 立即重启计算机 | shutdown -r now
 5分钟后关闭计算机 | shutdown -h +5
 取消重启或关闭计算机 | shutdown -c
@@ -80,8 +74,7 @@
 赋予x文件所属组属主权限 | chmod g+s x
 赋予x文件为共享目录 | chmod +t x
 修改x文件所有者为a,所属组为b | chown a.b x
-查看和修改新创建文件或目录的默认权限为(修改为全部只读)(用字母表示) | umask -S 333
- | at
+查看或修改新建文件和目录的默认权限为(修改全部为只读用字母表示) | umask -S u=r,g=r,o=r
 查看目录下文件的隐藏属性 | lsattr
 设置文件为只读(不可更改) | chattr +i
 查看所有进程(显示父进程) | ps -ef
