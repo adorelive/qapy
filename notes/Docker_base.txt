@@ -1,7 +1,7 @@
-查找Dockerfile并构建镜像x(当前目录) | docker build -t x .
-列出本地镜像 | docker images
+#### = 2026/7/17
+在当前目录查找Dockerfile并构建镜像x | docker build -t x .
+列出本地镜像(全部) | docker images -a
 删除未使用的镜像x(强制删除) | docker rmi x -f
-清理悬空镜像(包括未使用的镜像) | docker image prune -a
 从仓库拉取镜像x的y版本 | docker pull x:y
 为镜像x添加标签x:y | docker tag x x:y
 导出镜像x为x.tar.gz文件 | docker save -o x.tar.gz x
@@ -9,7 +9,7 @@
 导出容器x的快照为x.tar | docker export -o x.tar x
 通过容器快照x.tar创建镜像x | docker import x.tar x
 通过镜像x创建容器(后台运行容器) | docker run -d x
-通过镜像x创建容器(立即进入容器) | docker run -it x /bin/bash
+通过镜像x创建容器(立即进入容器) | docker run -it x bash
 通过镜像x创建容器(自定义容器名称a) | docker run --name a x
 通过镜像x创建容器(主机8080端口映射到容器80端口) | docker run -p 8080:80 x
 通过镜像x创建容器(主机的/a挂载到容器的/b) | docker run -v /a:/b x
@@ -18,14 +18,14 @@
 通过镜像x创建容器设置重启策略(异常重启)(设置重启3次) | docker run --restart unless-stopped on-failure:3 x
 容器x的(启动)(停止)(重启) | docker start stop restart x
 删除已停止的容器x(强制删除) | docker rm x -f
-进入运行中容器x的Shell | docker exec -it x /bin/bash
+进入运行中容器x的Shell | docker exec -it x bash
 查看容器x的日志(实时查看) | docker logs -f x
 查看容器x的详细信息 | docker inspect x
 列出正在运行的容器(包含已停止) | docker ps -a
 查看容器x内的进程信息 | docker top x
 查看所有容器的资源占用情况(包含未运行的) | docker stats -a
-从容器x复制文件/a到宿主机的当前目录 | docker cp x:/a a
-容器x的(暂停)(恢复) |  docker pause unpause x
+从容器x复制文件/a到宿主机的当前目录a | docker cp x:/a a
+容器x的(暂停/恢复) |  docker pause/unpause x
 查看容器x的端口映射 | docker port x
 将容器x的当前状态保存为一个新的镜像s | docker commit x s
 重命名容器x为s | docker rename x s
@@ -40,3 +40,12 @@
 显示数据卷x的详细信息 | docker volume inspect x
 删除指定的卷x | docker volume rm x
 查看Docker的磁盘使用情况 | docker system df
+多容器:创建并启动所有容器(后台运行) | docker compose up -d
+多容器:查看当前项目的容器状态(全部) | docker compose ps -a
+多容器:停止所有容器并删除容器，网络(同时删除卷) | docker compose down -v
+多容器:进入正在运行的容器x | docker compose exec x bash
+多容器:重启所有服务(x服务) | docker compose restart x
+多容器:删除已停止服务x | docker compose rm x
+多容器:停止服务x | docker compose stop x
+多容器:启动已停止的服务x | docker compose start x
+多容器:暂停/恢复服务x | docker compose pause/unpause x
