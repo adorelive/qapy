@@ -18,7 +18,7 @@ SSH服务端配置(root登录/端口/密钥认证等) | /etc/ssh/sshd_config
 Linux发行版名称与版本号 | /etc/redhat-release
 操作系统身份信息 | /etc/os-release
 认证服务配置目录 | /etc/pam.d
-系统开机自启动脚本 | /etc/rc.d/rc.local
+系统开机自启动脚本 | /etc/rc.local
 家目录下的交互式终端每次启动执行 | .bashrc
 家目录下的用户登录时执行一次 | .bash_profile
 家目录下的命令历史记录 | .bash_history
