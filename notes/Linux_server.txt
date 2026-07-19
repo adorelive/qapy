@@ -1,0 +1,19 @@
+启动系统服务x | systemctl start x
+停止系统服务x | systemctl stop x
+重启系统服务x | systemctl restart x
+重新读取服务x的配置文件 | systemctl reload x
+设置系统服务x开机自启 | systemctl enable x
+关闭启动系统服务x开机自启 | systemctl disable x
+查看系统服务x是否正在运行 | systemctl is-active x
+查看所有系统服务状态(x服务) | systemctl status x
+查看所有已激活的服务(包括未激活) | systemctl list-units --type=service --all
+重新加载所有服务的配置文件 | systemctl daemon-reload
+查看服务的资源占用(CPU/内存) | systemd-cgtop
+
+
+
+
+Debian 更新本地的软件包列表和实际升级已安装的软件 | apt update apt upgrade
+在线软件管理工具(安装/删除/搜索）x | yum install remove search x
+离线安装包管理(查询已安装） | rpm -ql
+源码编译和安装 | make install

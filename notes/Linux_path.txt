@@ -1,4 +1,5 @@
 #### = 2026/7/16
+用户/管理员自定义服务文件存放目录 | /etc/systemd/system/
 MySQL数据库配置文件 | /etc/my.cnf
 系统主机名配置文件 | /etc/hostname
 本地DNS解析配置文件 | /etc/hosts

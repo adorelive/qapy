@@ -8,7 +8,7 @@ ZIP压缩目录/为x.zip | zip -r x.zip /
 TAR打包压缩/为x.tar.gz | tar -czvf x.tar.gz /
 TAR查看包x.tar.gz内的文件 | tar -tf x.tar.gz
 解压x.tar.gz(解压到指定目录) | tar -xzvf x.tar.gz -C
-通过HTTP下载网络资源 | wget
+通过HTTP下载网络资源(文件路径和名称) | wget -O
 发送HTTP网络请求 | curl
 简单端口连通性测试 | telnet
 端口测试工具(监听模式/指定端口/详细输出/端口扫描/执行程序) | nc -l -p -v -z -e
