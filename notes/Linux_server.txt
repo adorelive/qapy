@@ -1,3 +1,4 @@
+#### = 2026/7/21
 启动系统服务x | systemctl start x
 停止系统服务x | systemctl stop x
 重启系统服务x | systemctl restart x
@@ -9,11 +10,30 @@
 查看所有已激活的服务(包括未激活) | systemctl list-units --type=service --all
 重新加载所有服务的配置文件 | systemctl daemon-reload
 查看服务的资源占用(CPU/内存) | systemd-cgtop
-
-
-
-
-Debian 更新本地的软件包列表和实际升级已安装的软件 | apt update apt upgrade
-在线软件管理工具(安装/删除/搜索）x | yum install remove search x
-离线安装包管理(查询已安装） | rpm -ql
-源码编译和安装 | make install
+RedHat安装软件包x(跳过确认) | yum -y install x
+RedHat安装本地的x.rpm文件，并自动解决依赖 | yum localinstall x.rpm
+RedHat卸载指定的软件包x及其依赖 | yum remove x
+RedHat更新系统所有软件包(只更新软件包x) | yum update x
+RedHat根据关键字搜索软件包x | yum search x
+RedHat显示软件包x的详细信息 | yum info x
+RedHat列出所有可安装和已安装的软件包(已安装)(可更新) | yum list installed updates
+RedHat一键清理所有软件包缓存 | yum clean all
+Debian安装指定的软件包x | apt install x
+Debian卸载软件包x,保留配置文件 | apt remove x
+Debian卸载软件包x,删除配置文件 | apt purge x
+Debian更新本地的软件包列表 | apt update
+Debian升级所有已安装的软件包 | apt upgrade
+Debian搜索软件包x | apt search x
+Debian显示x软件包的详细信息 | apt show x
+Debian列出所有软件包(已安装)(可升级) | apt list --installed --upgradeable
+Debian自动清理无用的软件包 | apt autoremove
+Debian自动清理软件包缓存 | apt autoclean
+RedHat离线包:安装x | rpm -ivh x.rpm
+RedHat离线包:升级x | rpm -Uvh x.rpm
+RedHat离线包:查询所有已安装的软件包 | rpm -qa
+RedHat离线包:查询软件包x的详细信息 | rpm -qi x
+RedHat离线包:卸载指定的软件包x | rpm -e x
+源码编译软件:生成用于编译的Makefile文件(指定安装目录为/a) | ./configure --prefix=/a
+源码编译软件:将源代码编译成可执行的二进制文件 | make
+源码编译软件:安装 | make install
+源码编译软件:清理 | make clean

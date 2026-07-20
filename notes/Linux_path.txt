@@ -1,5 +1,7 @@
 #### = 2026/7/16
-用户/管理员自定义服务文件存放目录 | /etc/systemd/system/
+用户/管理员自定义服务文件存放目录 | /etc/systemd/system
+yum软件源配置文件存放目录 | /etc/yum.repos.d
+apt软件源配置文件存放目录 | /etc/apt/sources.list.d
 MySQL数据库配置文件 | /etc/my.cnf
 系统主机名配置文件 | /etc/hostname
 本地DNS解析配置文件 | /etc/hosts
