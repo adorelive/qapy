@@ -1,20 +1,31 @@
+#### = 2026/7/21
 什么是MySQL | 开源关系型数据库
-登录MySQL（指定主机/账号/密码/端口） | mysql -h -u -p -P
+登录MySQL(指定主机)(账号)(密码)(端口) | mysql -h -u -p -P
 SQL分类 | DDL DML DQL DCL
 创建数据库x | create database x
 查看所有数据库 | show databases
 切换至x数据库 | use x
 删除数据库x | drop database x
-创建x表（id为数值型/非空） | create table x(id int not null)
-从o表复制结构+前3条数据创建x表 | create table x select * from o limit 3
+创建x表(id为数值型非空) | create table x(id int not null)
+从o表复制结构和前3条数据创建x表 | create table x select * from o limit 3
 给字段或表添加注释 | comment
-常用五种数据类型 | int float() char() varchar() datetime
-常用五种约束 | primary key auto_increment not null unique default
+数据类型整型 | int
+数据类型浮点型(共四位有两位小数) | float(4, 2)
+数据类型定长字符串型(最大长度) | char(255)
+数据类型不定长字符串型(长度100) | varchar(100)
+数据类型时间日期 | datetime
+主键约束 | primary key
+自增约束 | auto_increment
+非空约束 | not null
+唯一约束 | unique
+默认约束 | default
 查看x表结构 | desc x
 查看x表的建表SQL | show create table x
-为x表新增id字段（数值型/唯一/放第一列/放a1列之后） | alter table x add column id int unique first after a1
+为x表新增id字段(数值型)(唯一) | alter table x add column id int unique
+为x表新增id字段(数值型)(放第一列) | alter table x add column id int first
+为x表新增id字段(数值型)(放a1列之后) | alter table x add column id int after a1
 修改x表的id字段类型为int并设为主键 | alter table x modify column id int primary key
-将x表的id字段改名为sid（类型int） | alter table x change column id sid int
+将x表的id字段改名为sid(类型int) | alter table x change column id sid int
 删除x表的id字段 | alter table x drop column id
 将x表重命名为a | alter table x rename a
 删除x表 | drop table x
@@ -22,31 +33,36 @@ SQL分类 | DDL DML DQL DCL
 将o表前3行数据插入x表 | insert into x select * from o limit 3
 将x表前3行的id字段更新为1 | update x set id=1 limit 3
 删除x表前3行数据 | delete from x limit 3
-快速清空x表（保留结构） | truncate table x
+快速清空x表(保留结构) | truncate table x
 条件查询x表中id大于1且小于5的所有字段 | select * from x where id>1 and id<5
-查询x表中a字段的唯一值（去重） | select distinct a from x
+查询x表中a字段的值(去重) | select distinct a from x
 模糊查询x表中id包含'a'的记录 | select * from x where id like '%a%'
-按x表id(第二列)排序（正序/倒序） | select * from x order by id 2 asc desc
-x表从第2条开始返回5行数据（分页） | select * from x limit 5 offset 2
-聚合函数：统计行数/求和/平均值/最大值/最小值 | count() sum() avg() max() min()
+按x表id正序排序 | select * from x order by id asc
+按x表第二列倒序排序 | select * from x order by 2 desc
+查询x表的数据随机排序 | select * from x order by rand()
+x表从第2条开始返回5行数据 | select * from x limit 5 offset 2
+聚合函数(统计行数)(求和)(平均值)(最大值)(最小值) | count() sum() avg() max() min()
 x表按id分组，筛选分组后id>1的组 | select * from x group by id having id>1
 查询x表的总行数 | select count(*) from x
-合并多个查询结果x表（不去重） | select * from x union all select * from x
-根据id多表连接查询（内连接/左连接/右连接）x.a和s.a | select x.a, s.a from x join left join right join s on x.id=s.id
-子查询：查询x表中id等于（s表中name=1的id）的记录 | select * from x where id=(select id from s where name=1)
-子查询：在x表查询中附加s表的查询结果（s表中name=1的id） | select *, (select id from s where name=1) from x
-NULL值的六个特性 | 默认值 算数比较 聚合函数 排序 is null is not null isnull() ifnull()
+合并多个查询结果x表结果去重 | select * from x union select * from x
+合并多个查询结果x表(结果不去重) | select * from x union all select * from x
+根据id使用内连接查询x.a和s.a | select x.a, s.a from x join s on x.id=s.id
+根据id使用左连接查询x.a和s.a | select x.a, s.a from x left join s on x.id=s.id
+根据id查询右连接查询x.a和s.a | select x.a, s.a from x right join s on x.id=s.id
+查询x表中id等于(s表中name=1的id)的记录 | select * from x where id=(select id from s where name=1)
+在x表查询中附加s表的查询结果(s表中name=1的id) | select *, (select id from s where name=1) from x
+NULL值的六个特性 | 默认值 算术比较 聚合函数 排序 is null is not null isnull() ifnull()
 转大写 | upper()
 转小写 | lower()
 字节长度 | length()
 字符长度 | char_length()
 去除两端空格 | trim()
-左端填充（给a左侧填充2个0，总长3） | lpad(a, 3, 0)
-右端填充（给a右侧填充2个0，总长3） | rpad(a, 3, 0)
+左端填充(给a左侧填充2个0，总长3) | lpad(a, 3, 0)
+右端填充(给a右侧填充2个0，总长3) | rpad(a, 3, 0)
 拼接字符串a和b | concat(a, b)
 用'+'拼接字符串a和b | concat_ws('+', a, b)
 分组查询后拼接相同字段 | group_concat()
-查找a在b中的位置（未找到返回0） | instr(b, a)
+查找a在b中的位置(未找到返回0) | instr(b, a)
 截取字符串a，从第2位开始截取3个字符 | substr(a, 2, 3)
 将a中的o替换为n | replace(a, o, n)
 取绝对值 | abs()
@@ -54,7 +70,7 @@ NULL值的六个特性 | 默认值 算数比较 聚合函数 排序 is null is n
 向上取整 | ceil()
 向下取整 | floor()
 n四舍五入保留两位小数 | round(n, 2)
-截断小数位（不四舍五入） | truncate()
+截断小数位(不四舍五入) | truncate()
 判断正负：正数1/负数-1/零0 | sign()
 生成随机数 | rand()
 n的m次方或开方 | power(n, m)
@@ -66,20 +82,26 @@ n的m次方或开方 | power(n, m)
 当前日期时间 | now()
 当前日期 | curdate()
 当前时间 | curtime()
-星期几（0=周一，6=周日） | weekday()
+星期几(0=周一，6=周日) | weekday()
 今天是今年的第几天 | dayofyear(now())
 计算两个日期相差的天数 | datediff()
 计算两个时间相差的时间差 | timediff()
 当前登录用户 | current_user()
 当前使用的数据库 | database()
 当前MySQL版本 | version()
-创建用户a（仅本地登录/任意主机登录）密码为b | create user a@localhost a@'%' identified by 'b'
-修改用户a（本地登录）的密码为b | alter user a@localhost identified by 'b'
-将用户a（本地登录）重命名为b | rename user a@localhost to b@localhost
+创建仅本地登录的用户a密码为b | create user a@localhost identified by 'b'
+创建任意主机登录的用户a密码为b | create user a@'%' identified by 'b'
+修改本地用户a的密码为b | alter user a@localhost identified by 'b'
+将本地用户a重命名为b | rename user a@localhost to b@localhost
 查询MySQL中所有用户名及其登录主机 | select user, host from mysql.user
-删除用户a | drop user a@localhost
-授予用户a全部权限（所有库所有表/x库所有表/x库.y表）并允许向下授权 | grant all on *.* x.* x.y to a@localhost with grant option
-撤销用户a的删除权限 | revoke delete on *.* from a@localhost
-查看用户a的权限（默认查看当前用户） | show grants for a@localhost
+删除本地用户a | drop user a@localhost
+授予(所有库所有表)(x库所有表)(x库.y表)的所有权限给本地用户a | grant all on *.* x.* x.y to a@localhost
+授予所有库所有表的所有权限给本地用户a并允许向下授权 | grant all on *.* to a@localhost with grant option
+撤销本地用户a的删除权限 | revoke delete on *.* from a@localhost
+查看当前用户的权限(查看本地用户a) | show grants for a@localhost
 在MySQL中导入x.sql文件 | source x.sql
-导出a库（或a库b表）到SQL文件a | mysqldump -u -p a(a b) > a.sql
+导出a库到SQL文件a | mysqldump -u -p a > a.sql
+导出a库b表到SQL文件a | mysqldump -u -p a b > a.sql
+存储所有表(含视图)的元数据的表 | information_schema.tables
+存储所有表和视图的列信息，如字段名、数据类型、是否可为空、默认值的表 | information_schema.columns
+存储所有数据库的表 | information_schema.schemata
