@@ -30,3 +30,4 @@
 撤销(瑞我克) | revoke
 独特(第四定克特)  | distinct
 防火墙(发尔沃德) | firewalld
+忽视(一个诺儿)  | ignore

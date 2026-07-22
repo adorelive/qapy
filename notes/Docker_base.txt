@@ -1,5 +1,6 @@
 #### = 2026/7/17
 在当前目录查找Dockerfile并构建镜像x | docker build -t x .
+在当前目录通过Dockerfile.env构建镜像x | docker build -f Dockerfile.env -t x  .
 列出本地镜像(全部) | docker images -a
 删除未使用的镜像x(强制删除) | docker rmi x -f
 从仓库拉取镜像x的y版本 | docker pull x:y
